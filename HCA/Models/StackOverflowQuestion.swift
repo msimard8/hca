@@ -8,6 +8,11 @@
 
 import Foundation
 
-struct StackOverflowQuestionModel {
-    
+struct StackOverflowQuestionModel:Decodable {
+    var acceptedAnswerId:Int?
+    var answerCount:Int
+    var questionId:Int
+    var title:String
+    var creationDate:Date
 }
+
