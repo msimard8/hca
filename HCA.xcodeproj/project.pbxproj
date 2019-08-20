@@ -14,6 +14,8 @@
 		8ABF5D18230C63F5001A1546 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8ABF5D17230C63F5001A1546 /* Assets.xcassets */; };
 		8ABF5D1B230C63F5001A1546 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8ABF5D19230C63F5001A1546 /* LaunchScreen.storyboard */; };
 		8ABF5D26230C63F5001A1546 /* HCATests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABF5D25230C63F5001A1546 /* HCATests.swift */; };
+		8ABF5D33230CB39A001A1546 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABF5D32230CB39A001A1546 /* NetworkService.swift */; };
+		8ABF5D37230CB55A001A1546 /* StackOverflowQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABF5D36230CB55A001A1546 /* StackOverflowQuestion.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +40,8 @@
 		8ABF5D21230C63F5001A1546 /* HCATests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HCATests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8ABF5D25230C63F5001A1546 /* HCATests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCATests.swift; sourceTree = "<group>"; };
 		8ABF5D27230C63F5001A1546 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8ABF5D32230CB39A001A1546 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		8ABF5D36230CB55A001A1546 /* StackOverflowQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackOverflowQuestion.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +83,8 @@
 		8ABF5D0C230C63F4001A1546 /* HCA */ = {
 			isa = PBXGroup;
 			children = (
+				8ABF5D31230C7AE5001A1546 /* Network */,
+				8ABF5D30230C66CA001A1546 /* Models */,
 				8ABF5D0D230C63F4001A1546 /* AppDelegate.swift */,
 				8ABF5D0F230C63F4001A1546 /* ViewController.swift */,
 				8ABF5D11230C63F4001A1546 /* Main.storyboard */,
@@ -97,6 +103,22 @@
 				8ABF5D27230C63F5001A1546 /* Info.plist */,
 			);
 			path = HCATests;
+			sourceTree = "<group>";
+		};
+		8ABF5D30230C66CA001A1546 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8ABF5D36230CB55A001A1546 /* StackOverflowQuestion.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8ABF5D31230C7AE5001A1546 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				8ABF5D32230CB39A001A1546 /* NetworkService.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -202,6 +224,8 @@
 			files = (
 				8ABF5D10230C63F4001A1546 /* ViewController.swift in Sources */,
 				8ABF5D0E230C63F4001A1546 /* AppDelegate.swift in Sources */,
+				8ABF5D33230CB39A001A1546 /* NetworkService.swift in Sources */,
+				8ABF5D37230CB55A001A1546 /* StackOverflowQuestion.swift in Sources */,
 				8ABF5D16230C63F4001A1546 /* HCA.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
