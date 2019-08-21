@@ -7,3 +7,11 @@
 //
 
 import Foundation
+
+struct StackOverflowQuestionList:Codable {
+
+    var questions:[StackOverflowQuestion]
+    enum CodingKeys: String, CodingKey {
+        case questions = "items"
+    }
+}
