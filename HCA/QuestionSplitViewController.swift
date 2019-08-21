@@ -16,10 +16,14 @@ class QuestionSplitViewController: UISplitViewController {
 
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
 
+        self.preferredPrimaryColumnWidthFraction = 0.45
         let questionListViewController = QuestionListViewController()
+        self.maximumPrimaryColumnWidth = self.view.bounds.size.width/2.0
+
 
         let navigationController = UINavigationController(rootViewController: questionListViewController)
-        navigationController.navigationBar.barTintColor = .black
+        navigationController.navigationBar.barTintColor = UIColor(red: 0, green: 0.4118, blue: 0.8588, alpha: 1.0)
+        
 
         UIBarButtonItem.appearance().tintColor = UIColor.white
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
@@ -57,6 +61,7 @@ extension QuestionSplitViewController: UISplitViewControllerDelegate {
     func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
         return true
     }
+
 }
 
 extension QuestionListViewController: QuestionListViewControllerDelegate {
