@@ -16,6 +16,12 @@
 		8ABF5D26230C63F5001A1546 /* HCATests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABF5D25230C63F5001A1546 /* HCATests.swift */; };
 		8ABF5D33230CB39A001A1546 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABF5D32230CB39A001A1546 /* NetworkService.swift */; };
 		8ABF5D37230CB55A001A1546 /* StackOverflowQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABF5D36230CB55A001A1546 /* StackOverflowQuestion.swift */; };
+		8ABF5D39230CD48E001A1546 /* StackOverflowQuestionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABF5D38230CD48E001A1546 /* StackOverflowQuestionList.swift */; };
+		8ABF5D3B230CDD77001A1546 /* QuestionSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABF5D3A230CDD77001A1546 /* QuestionSplitViewController.swift */; };
+		8ABF5D3E230CDDD6001A1546 /* QuestionListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABF5D3C230CDDD6001A1546 /* QuestionListViewController.swift */; };
+		8ABF5D3F230CDDD6001A1546 /* QuestionListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8ABF5D3D230CDDD6001A1546 /* QuestionListViewController.xib */; };
+		8ABF5D42230CDE00001A1546 /* AnswerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABF5D40230CDE00001A1546 /* AnswerListViewController.swift */; };
+		8ABF5D43230CDE00001A1546 /* AnswerListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8ABF5D41230CDE00001A1546 /* AnswerListViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +48,12 @@
 		8ABF5D27230C63F5001A1546 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8ABF5D32230CB39A001A1546 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		8ABF5D36230CB55A001A1546 /* StackOverflowQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackOverflowQuestion.swift; sourceTree = "<group>"; };
+		8ABF5D38230CD48E001A1546 /* StackOverflowQuestionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackOverflowQuestionList.swift; sourceTree = "<group>"; };
+		8ABF5D3A230CDD77001A1546 /* QuestionSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionSplitViewController.swift; sourceTree = "<group>"; };
+		8ABF5D3C230CDDD6001A1546 /* QuestionListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionListViewController.swift; sourceTree = "<group>"; };
+		8ABF5D3D230CDDD6001A1546 /* QuestionListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestionListViewController.xib; sourceTree = "<group>"; };
+		8ABF5D40230CDE00001A1546 /* AnswerListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerListViewController.swift; sourceTree = "<group>"; };
+		8ABF5D41230CDE00001A1546 /* AnswerListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnswerListViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +99,11 @@
 				8ABF5D30230C66CA001A1546 /* Models */,
 				8ABF5D0D230C63F4001A1546 /* AppDelegate.swift */,
 				8ABF5D0F230C63F4001A1546 /* ViewController.swift */,
+				8ABF5D3A230CDD77001A1546 /* QuestionSplitViewController.swift */,
+				8ABF5D3C230CDDD6001A1546 /* QuestionListViewController.swift */,
+				8ABF5D3D230CDDD6001A1546 /* QuestionListViewController.xib */,
+				8ABF5D40230CDE00001A1546 /* AnswerListViewController.swift */,
+				8ABF5D41230CDE00001A1546 /* AnswerListViewController.xib */,
 				8ABF5D11230C63F4001A1546 /* Main.storyboard */,
 				8ABF5D17230C63F5001A1546 /* Assets.xcassets */,
 				8ABF5D19230C63F5001A1546 /* LaunchScreen.storyboard */,
@@ -109,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				8ABF5D36230CB55A001A1546 /* StackOverflowQuestion.swift */,
+				8ABF5D38230CD48E001A1546 /* StackOverflowQuestionList.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -204,6 +222,8 @@
 			files = (
 				8ABF5D1B230C63F5001A1546 /* LaunchScreen.storyboard in Resources */,
 				8ABF5D18230C63F5001A1546 /* Assets.xcassets in Resources */,
+				8ABF5D3F230CDDD6001A1546 /* QuestionListViewController.xib in Resources */,
+				8ABF5D43230CDE00001A1546 /* AnswerListViewController.xib in Resources */,
 				8ABF5D13230C63F4001A1546 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -224,7 +244,11 @@
 			files = (
 				8ABF5D10230C63F4001A1546 /* ViewController.swift in Sources */,
 				8ABF5D0E230C63F4001A1546 /* AppDelegate.swift in Sources */,
+				8ABF5D39230CD48E001A1546 /* StackOverflowQuestionList.swift in Sources */,
+				8ABF5D3B230CDD77001A1546 /* QuestionSplitViewController.swift in Sources */,
+				8ABF5D3E230CDDD6001A1546 /* QuestionListViewController.swift in Sources */,
 				8ABF5D33230CB39A001A1546 /* NetworkService.swift in Sources */,
+				8ABF5D42230CDE00001A1546 /* AnswerListViewController.swift in Sources */,
 				8ABF5D37230CB55A001A1546 /* StackOverflowQuestion.swift in Sources */,
 				8ABF5D16230C63F4001A1546 /* HCA.xcdatamodeld in Sources */,
 			);
