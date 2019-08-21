@@ -20,15 +20,17 @@ class QuestionListViewController: UIViewController {
     var pagesLoaded = 0
     var maxQuestionCount = 300 //putting a max so api doesnt get abused
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         questionsTableView.register(UINib(nibName: "QuestionTableViewCell", bundle: nil), forCellReuseIdentifier: QuestionTableViewCell.identifier)
         questionsTableView.register(UINib(nibName: "QuestionListLoadMoreTableViewCell", bundle: nil), forCellReuseIdentifier: QuestionListLoadMoreTableViewCell.identifier)
-
+        questionsTableView.estimatedRowHeight = 44
+        questionsTableView.rowHeight = UITableView.automaticDimension
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refreshData), for: UIControl.Event.valueChanged)
         self.questionsTableView.refreshControl = refreshControl
-
+        self.title = "Questions"
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -99,6 +101,9 @@ extension QuestionListViewController: UITableViewDelegate {
                 self.getQuestionsForNextPage()
             }
         }
+        if let questionCell = cell as? QuestionTableViewCell {
+         //        questionCell.question = self.questions[indexPath.row]
+        }
     }
 
 }
@@ -128,7 +133,8 @@ extension QuestionListViewController: UITableViewDataSource {
             guard let questionTableViewCell = tableView.dequeueReusableCell(withIdentifier: QuestionTableViewCell.identifier, for: indexPath) as? QuestionTableViewCell else{
                 return UITableViewCell()
             }
-            questionTableViewCell.textLabel?.text = questions[indexPath.row].title
+            questionTableViewCell.question = questions[indexPath.row]
+           // questionTableViewCell.layoutIfNeeded()
             return questionTableViewCell
 
         }
