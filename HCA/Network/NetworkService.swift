@@ -24,7 +24,7 @@ class NetworkService: NSObject {
         dataTask?.cancel()
 
         if var urlComponents = URLComponents (string: "\(baseURL)/questions") {
-            urlComponents.query = "page=1&pagesize=10&order=desc&sort=activity&site=stackoverflow"
+            urlComponents.query = "page=1&pagesize=10&order=desc&sort=activity&site=stackoverflow&filter=!bA1d_KvDaVNbv5"
 
             guard let url = urlComponents.url else {
                 return
