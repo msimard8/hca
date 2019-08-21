@@ -10,12 +10,46 @@ import UIKit
 
 class NetworkService: NSObject {
     let baseURL = "https://api.stackexchange.com/2.2"
+    let session = URLSession(configuration: .default)
+    var dataTask: URLSessionDataTask?
+    var decoder = JSONDecoder()
 
     internal static var shared: NetworkService = {
         let instance = NetworkService()
         return instance
     }()
 
-    
+    func getRecentQuestions( completion: @escaping((_ questionList: StackOverflowQuestionList) -> Void)){
 
+        dataTask?.cancel()
+
+        if var urlComponents = URLComponents (string: "\(baseURL)/questions") {
+            urlComponents.query = "page=1&pagesize=10&order=desc&sort=activity&site=stackoverflow"
+
+            guard let url = urlComponents.url else {
+                return
+            }
+
+            dataTask = session.dataTask(with: url) {[weak self] (data, response, error) in
+                defer {
+                    self?.dataTask = nil
+                }
+
+                if let error = error {
+                    print ("Error \(error.localizedDescription)")
+                }
+                else if
+                    let data = data,
+                    let response = response as? HTTPURLResponse,
+                    response.statusCode == 200 {
+                    let questions = try! JSONDecoder().decode(StackOverflowQuestionList.self, from: data)
+                    completion(questions)
+                }
+                else {
+                    //assume error
+                }
+            }
+            dataTask?.resume()
+        }
+    }
 }
