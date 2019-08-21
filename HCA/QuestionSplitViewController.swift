@@ -10,6 +10,30 @@ import UIKit
 
 class QuestionSplitViewController: UISplitViewController {
 
+    let answerListViewController = AnswerListViewController()
+
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+
+        let questionListViewController = QuestionListViewController()
+
+        let navigationController = UINavigationController(rootViewController: questionListViewController)
+        navigationController.navigationBar.barTintColor = .black
+
+        UIBarButtonItem.appearance().tintColor = UIColor.white
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        self.viewControllers = [navigationController, answerListViewController ]
+
+        self.preferredDisplayMode = .allVisible
+        delegate = self
+
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,5 +50,16 @@ class QuestionSplitViewController: UISplitViewController {
         // Pass the selected object to the new view controller.
     }
     */
+}
+
+
+extension QuestionSplitViewController: UISplitViewControllerDelegate {
+    func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
+        return true
+    }
+}
+
+extension QuestionListViewController: QuestionListViewControllerDelegate {
+
 
 }
