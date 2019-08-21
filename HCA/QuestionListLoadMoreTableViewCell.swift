@@ -10,8 +10,11 @@ import UIKit
 
 class QuestionListLoadMoreTableViewCell: UITableViewCell {
 
+    static let identifier = "QuestionListLoadMoreTableViewCell"
+
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.selectionStyle = .none
         // Initialization code
     }
 
