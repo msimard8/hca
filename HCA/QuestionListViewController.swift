@@ -14,22 +14,44 @@ protocol QuestionListViewControllerDelegate: class {
 
 class QuestionListViewController: UIViewController {
 
+    @IBOutlet weak var questionsTableView: UITableView!
+    var questionList = StackOverflowQuestionList(questions: [])
+    var date = Date()
+    var pagesLoaded = 0
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        questionsTableView.register(UINib(nibName: "QuestionTableViewCell", bundle: nil), forCellReuseIdentifier: QuestionTableViewCell.identifier)
+        questionsTableView.register(UINib(nibName: "QuestionListLoadMoreTableViewCell", bundle: nil), forCellReuseIdentifier: QuestionListLoadMoreTableViewCell.identifier)
 
-        // Do any additional setup after loading the view.
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshData), for: UIControl.Event.valueChanged)
+        self.questionsTableView.refreshControl = refreshControl
+
+        refreshData()
     }
 
+    @objc func refreshData(){
+        date = Date()
+        NetworkService.shared.getRecentQuestions(page:1, date: Date()) { (list) in
+            self.pagesLoaded = 1;
+            self.questionList = list
+            DispatchQueue.main.async {
+                self.questionsTableView.refreshControl?.endRefreshing()
+                self.questionsTableView.reloadData()
+            }
+        }
+    }
 
     /*
-    // MARK: - Navigation
+     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
 
 }
 
@@ -39,18 +61,30 @@ extension QuestionListViewController: UITableViewDelegate {
 
 extension QuestionListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        switch questionList.questions.count {
+        case 0:
+            return 0
+        default:
+            return  questionList.questions.count + 1
+        }
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        if indexPath.row == questionList.questions.count {
+            guard let loadMoreTableViewCell = tableView.dequeueReusableCell(withIdentifier: QuestionListLoadMoreTableViewCell.identifier, for: indexPath) as? QuestionListLoadMoreTableViewCell else{
+                return UITableViewCell()
+            }
+            return loadMoreTableViewCell
+        }
+        else {
+            guard let questionTableViewCell = tableView.dequeueReusableCell(withIdentifier: QuestionTableViewCell.identifier, for: indexPath) as? QuestionTableViewCell else{
+                return UITableViewCell()
+            }
+            questionTableViewCell.textLabel?.text = questionList.questions[indexPath.row].title
+            return questionTableViewCell
+
+        }
     }
 }
 
-extension QuestionListViewController: UITableViewDataSourcePrefetching {
-    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
-        
-    }
 
-
-}
