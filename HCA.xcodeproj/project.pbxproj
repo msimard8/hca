@@ -22,6 +22,10 @@
 		8ABF5D3F230CDDD6001A1546 /* QuestionListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8ABF5D3D230CDDD6001A1546 /* QuestionListViewController.xib */; };
 		8ABF5D42230CDE00001A1546 /* AnswerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABF5D40230CDE00001A1546 /* AnswerListViewController.swift */; };
 		8ABF5D43230CDE00001A1546 /* AnswerListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8ABF5D41230CDE00001A1546 /* AnswerListViewController.xib */; };
+		8ABF5D46230CE866001A1546 /* QuestionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABF5D44230CE866001A1546 /* QuestionTableViewCell.swift */; };
+		8ABF5D47230CE866001A1546 /* QuestionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8ABF5D45230CE866001A1546 /* QuestionTableViewCell.xib */; };
+		8ABF5D4A230CEF03001A1546 /* QuestionListLoadMoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABF5D48230CEF03001A1546 /* QuestionListLoadMoreTableViewCell.swift */; };
+		8ABF5D4B230CEF03001A1546 /* QuestionListLoadMoreTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8ABF5D49230CEF03001A1546 /* QuestionListLoadMoreTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +58,10 @@
 		8ABF5D3D230CDDD6001A1546 /* QuestionListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestionListViewController.xib; sourceTree = "<group>"; };
 		8ABF5D40230CDE00001A1546 /* AnswerListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerListViewController.swift; sourceTree = "<group>"; };
 		8ABF5D41230CDE00001A1546 /* AnswerListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnswerListViewController.xib; sourceTree = "<group>"; };
+		8ABF5D44230CE866001A1546 /* QuestionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionTableViewCell.swift; sourceTree = "<group>"; };
+		8ABF5D45230CE866001A1546 /* QuestionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestionTableViewCell.xib; sourceTree = "<group>"; };
+		8ABF5D48230CEF03001A1546 /* QuestionListLoadMoreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionListLoadMoreTableViewCell.swift; sourceTree = "<group>"; };
+		8ABF5D49230CEF03001A1546 /* QuestionListLoadMoreTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestionListLoadMoreTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +110,10 @@
 				8ABF5D3A230CDD77001A1546 /* QuestionSplitViewController.swift */,
 				8ABF5D3C230CDDD6001A1546 /* QuestionListViewController.swift */,
 				8ABF5D3D230CDDD6001A1546 /* QuestionListViewController.xib */,
+				8ABF5D44230CE866001A1546 /* QuestionTableViewCell.swift */,
+				8ABF5D45230CE866001A1546 /* QuestionTableViewCell.xib */,
+				8ABF5D48230CEF03001A1546 /* QuestionListLoadMoreTableViewCell.swift */,
+				8ABF5D49230CEF03001A1546 /* QuestionListLoadMoreTableViewCell.xib */,
 				8ABF5D40230CDE00001A1546 /* AnswerListViewController.swift */,
 				8ABF5D41230CDE00001A1546 /* AnswerListViewController.xib */,
 				8ABF5D11230C63F4001A1546 /* Main.storyboard */,
@@ -222,7 +234,9 @@
 			files = (
 				8ABF5D1B230C63F5001A1546 /* LaunchScreen.storyboard in Resources */,
 				8ABF5D18230C63F5001A1546 /* Assets.xcassets in Resources */,
+				8ABF5D4B230CEF03001A1546 /* QuestionListLoadMoreTableViewCell.xib in Resources */,
 				8ABF5D3F230CDDD6001A1546 /* QuestionListViewController.xib in Resources */,
+				8ABF5D47230CE866001A1546 /* QuestionTableViewCell.xib in Resources */,
 				8ABF5D43230CDE00001A1546 /* AnswerListViewController.xib in Resources */,
 				8ABF5D13230C63F4001A1546 /* Main.storyboard in Resources */,
 			);
@@ -243,10 +257,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				8ABF5D10230C63F4001A1546 /* ViewController.swift in Sources */,
+				8ABF5D46230CE866001A1546 /* QuestionTableViewCell.swift in Sources */,
 				8ABF5D0E230C63F4001A1546 /* AppDelegate.swift in Sources */,
 				8ABF5D39230CD48E001A1546 /* StackOverflowQuestionList.swift in Sources */,
 				8ABF5D3B230CDD77001A1546 /* QuestionSplitViewController.swift in Sources */,
 				8ABF5D3E230CDDD6001A1546 /* QuestionListViewController.swift in Sources */,
+				8ABF5D4A230CEF03001A1546 /* QuestionListLoadMoreTableViewCell.swift in Sources */,
 				8ABF5D33230CB39A001A1546 /* NetworkService.swift in Sources */,
 				8ABF5D42230CDE00001A1546 /* AnswerListViewController.swift in Sources */,
 				8ABF5D37230CB55A001A1546 /* StackOverflowQuestion.swift in Sources */,
