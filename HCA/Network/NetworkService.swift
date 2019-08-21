@@ -10,7 +10,8 @@ import UIKit
 
 class NetworkService: NSObject {
     let baseURL = "https://api.stackexchange.com/2.2"
-    var key = ""
+    let key:String = "wV5REhLr1WpnH1aejgbZHw(("
+    let pageSize = 20
     let session = URLSession(configuration: .default)
     var dataTask: URLSessionDataTask?
     var decoder = JSONDecoder()
@@ -22,16 +23,18 @@ class NetworkService: NSObject {
 
     func getRecentQuestions(page:Int = 1, date:Date = Date.init(timeIntervalSinceNow: 0), completion: @escaping((_ questionList: StackOverflowQuestionList) -> Void)){
 
+        decoder.dateDecodingStrategy = .secondsSince1970
+
         dataTask?.cancel()
 
          if var urlComponents = URLComponents (string: "\(baseURL)/search/advanced") {
-            urlComponents.query = "page=\(page)&pagesize=10"
+            urlComponents.query = "page=\(page)&pagesize=\(pageSize)"
             + "&todate=\(Int(date.timeIntervalSince1970))"
             + "&order=desc&sort=creation"
             + "&accepted=True&answers=2"
             + "&site=stackoverflow"
             + "&filter=!4(Yr(ztczR*6OAdo1"
-            + "&key=wV5REhLr1WpnH1aejgbZHw(("
+            + "&key=\(key)"
 
             guard let url = urlComponents.url else {
                 return
