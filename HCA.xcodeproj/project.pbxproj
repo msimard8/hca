@@ -26,6 +26,7 @@
 		8ABF5D47230CE866001A1546 /* QuestionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8ABF5D45230CE866001A1546 /* QuestionTableViewCell.xib */; };
 		8ABF5D4A230CEF03001A1546 /* QuestionListLoadMoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABF5D48230CEF03001A1546 /* QuestionListLoadMoreTableViewCell.swift */; };
 		8ABF5D4B230CEF03001A1546 /* QuestionListLoadMoreTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8ABF5D49230CEF03001A1546 /* QuestionListLoadMoreTableViewCell.xib */; };
+		8ABF5D4E230DD6F9001A1546 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABF5D4D230DD6F9001A1546 /* Utils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		8ABF5D45230CE866001A1546 /* QuestionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestionTableViewCell.xib; sourceTree = "<group>"; };
 		8ABF5D48230CEF03001A1546 /* QuestionListLoadMoreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionListLoadMoreTableViewCell.swift; sourceTree = "<group>"; };
 		8ABF5D49230CEF03001A1546 /* QuestionListLoadMoreTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestionListLoadMoreTableViewCell.xib; sourceTree = "<group>"; };
+		8ABF5D4D230DD6F9001A1546 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 		8ABF5D0C230C63F4001A1546 /* HCA */ = {
 			isa = PBXGroup;
 			children = (
+				8ABF5D4C230DD6E4001A1546 /* Util */,
 				8ABF5D31230C7AE5001A1546 /* Network */,
 				8ABF5D30230C66CA001A1546 /* Models */,
 				8ABF5D0D230C63F4001A1546 /* AppDelegate.swift */,
@@ -149,6 +152,14 @@
 				8ABF5D32230CB39A001A1546 /* NetworkService.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		8ABF5D4C230DD6E4001A1546 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				8ABF5D4D230DD6F9001A1546 /* Utils.swift */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,6 +278,7 @@
 				8ABF5D42230CDE00001A1546 /* AnswerListViewController.swift in Sources */,
 				8ABF5D37230CB55A001A1546 /* StackOverflowQuestion.swift in Sources */,
 				8ABF5D16230C63F4001A1546 /* HCA.xcdatamodeld in Sources */,
+				8ABF5D4E230DD6F9001A1546 /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
