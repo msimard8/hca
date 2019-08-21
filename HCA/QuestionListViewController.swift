@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol QuestionListViewControllerDelegate: class {
+    
+}
+
 class QuestionListViewController: UIViewController {
 
     override func viewDidLoad() {
@@ -26,5 +30,27 @@ class QuestionListViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+
+}
+
+extension QuestionListViewController: UITableViewDelegate {
+
+}
+
+extension QuestionListViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 0
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return UITableViewCell()
+    }
+}
+
+extension QuestionListViewController: UITableViewDataSourcePrefetching {
+    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        
+    }
+
 
 }
