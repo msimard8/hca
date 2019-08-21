@@ -6,6 +6,8 @@
 //  Copyright © 2019 Michael Simard. All rights reserved.
 //
 
+//
+
 import UIKit
 import CoreData
 
@@ -17,6 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window!.rootViewController = QuestionSplitViewController()
+        window!.makeKeyAndVisible()
         return true
     }
 
