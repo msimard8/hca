@@ -19,12 +19,12 @@ class NetworkService: NSObject {
         return instance
     }()
 
-    func getRecentQuestions( completion: @escaping((_ questionList: StackOverflowQuestionList) -> Void)){
+    func getRecentQuestions(page:Int = 1, date:Date = Date.init(timeIntervalSinceNow: 0), completion: @escaping((_ questionList: StackOverflowQuestionList) -> Void)){
 
         dataTask?.cancel()
 
          if var urlComponents = URLComponents (string: "\(baseURL)/search/advanced") {
-            urlComponents.query = "page=1&pagesize=10&order=desc&sort=activity&accepted=True&answers=2&site=stackoverflow&filter=!4(Yr(ztczR*6OAdo1"
+            urlComponents.query = "page=\(page)&pagesize=10&todate=\(Int(date.timeIntervalSince1970))&order=desc&sort=creation&accepted=True&answers=2&site=stackoverflow&filter=!4(Yr(ztczR*6OAdo1"
 
             guard let url = urlComponents.url else {
                 return
