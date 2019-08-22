@@ -9,6 +9,28 @@
 import UIKit
 
 class AnswerListQuestionTableViewCell: UITableViewCell {
+    static let identifier = "AnswerListQuestionTableViewCell"
+
+    @IBOutlet weak var questionAttributedLabel: UILabel!
+
+    var question:StackOverflowQuestion? {
+        didSet {
+
+            let font = UIFont.systemFont(ofSize: 30)
+
+            let attributes: [NSAttributedString.Key: Any] = [
+                .foregroundColor: UIColor.white,
+                .font: font
+            ]
+
+
+            let attributedString = NSMutableAttributedString.init(html: question?.title ?? "")
+
+            questionAttributedLabel.numberOfLines = 0
+            attributedString?.addAttributes(attributes, range: NSRange(location: 0, length: (attributedString?.length ?? 0)))
+            questionAttributedLabel.attributedText = attributedString
+        }
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()
