@@ -13,10 +13,15 @@ class AnswerListQuestionTableViewCell: UITableViewCell {
 
     @IBOutlet weak var questionAttributedLabel: UILabel!
 
+    @IBOutlet weak var nameLabel: UILabel!
+
+    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var dateLabel: UILabel!
+
     var question:StackOverflowQuestion? {
         didSet {
 
-            let font = UIFont.systemFont(ofSize: 30)
+            let font = UIFont.systemFont(ofSize: 24)
 
             let attributes: [NSAttributedString.Key: Any] = [
                 .foregroundColor: UIColor.white,
@@ -24,6 +29,8 @@ class AnswerListQuestionTableViewCell: UITableViewCell {
             ]
 
 
+            dateLabel.text = Utils.formatDate(date: question?.creationDate ?? Date())
+            nameLabel.text = question?.owner.displayName ?? "anonymous"
             let attributedString = NSMutableAttributedString.init(html: question?.title ?? "")
 
             questionAttributedLabel.numberOfLines = 0
@@ -43,4 +50,16 @@ class AnswerListQuestionTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+}
+
+extension AnswerListQuestionTableViewCell : ImageContainingTableViewCell {
+    func setImage(image: UIImage?) {
+        self.profileImageView.image = image
+    }
+
+    var imageURL: String {
+        get {
+            return question?.owner.profileImage ?? ""
+        }
+    }
 }
