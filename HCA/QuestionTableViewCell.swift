@@ -22,7 +22,7 @@ class QuestionTableViewCell: UITableViewCell {
                 self.questionTitleLabel.text = self.question?.title
                 self.dateLabel.text = "Asked On:  \(Utils.formatDate(date: self.question?.creationDate ?? Date()))"
                 self.numberOfAnswerLabel.text = "No. of Answers: \(self.question?.answerCount ?? 0)"
-          //      self.questionTitleLabel.text = "This is a readlly really really reallyreadlly really really reallyreadlly really really reallyreadlly really really reallyreadlly really really reallyreadlly really really reallyreadlly really really really "
+
 
             }
         }
@@ -38,7 +38,7 @@ class QuestionTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         if selected {
-            cardViewBackground.backgroundColor  = UIColor(red: 0.8784, green: 1, blue: 0.9804, alpha: 1.0)
+            cardViewBackground.backgroundColor  =  UIColor(red: 187.0/255.0, green: 224.0/255.0, blue: 255.0/255.0, alpha: 1.0)
         }
         else {
             cardViewBackground.backgroundColor = .white
