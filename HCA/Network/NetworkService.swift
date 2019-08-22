@@ -21,6 +21,54 @@ class NetworkService: NSObject {
         return instance
     }()
 
+
+    func getAnswers (questionId:Int, completion: @escaping((_ questionList: StackOverflowAnswerList) -> Void)){
+
+        decoder.dateDecodingStrategy = .secondsSince1970
+
+        dataTask?.cancel()
+
+        if var urlComponents = URLComponents (string: "\(baseURL)/questions/\(questionId)/answers") {
+            urlComponents.query = "order=desc"
+            + "&sort=votes"
+            + "&site=stackoverflow"
+            + "&filter=!bL9HaJrVoWri71"
+            + "&key=\(key)"
+
+            guard let url = urlComponents.url else {
+                return
+            }
+
+            dataTask = session.dataTask(with: url) {[weak self] (data, response, error) in
+                defer {
+                    self?.dataTask = nil
+                }
+
+                if let error = error {
+                    print ("Error \(error.localizedDescription)")
+                }
+                else if
+                    let data = data,
+                    let response = response as? HTTPURLResponse,
+                    response.statusCode == 200 {
+                    let answers = try! self?.decoder.decode(StackOverflowAnswerList.self, from: data)
+                    completion(answers!)
+
+                }
+                else {
+                    //assume error
+                }
+            }
+            dataTask?.resume()
+        }
+
+
+    }
+
+
+
+
+
     func getRecentQuestions(page:Int = 1, date:Date = Date.init(timeIntervalSinceNow: 0), completion: @escaping((_ questionList: StackOverflowQuestionList) -> Void)){
 
         decoder.dateDecodingStrategy = .secondsSince1970
