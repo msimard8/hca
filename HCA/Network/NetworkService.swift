@@ -32,7 +32,7 @@ class NetworkService: NSObject {
             urlComponents.query = "order=desc"
             + "&sort=votes"
             + "&site=stackoverflow"
-            + "&filter=!bL9HaJrVoWri71"
+            + "&filter=!)Q2AgQTb-X*Za_BUKPaSUeie"
             + "&key=\(key)"
 
             guard let url = urlComponents.url else {
@@ -65,10 +65,6 @@ class NetworkService: NSObject {
 
     }
 
-
-
-
-
     func getRecentQuestions(page:Int = 1, date:Date = Date.init(timeIntervalSinceNow: 0), completion: @escaping((_ questionList: StackOverflowQuestionList) -> Void)){
 
         decoder.dateDecodingStrategy = .secondsSince1970
@@ -81,7 +77,7 @@ class NetworkService: NSObject {
             + "&order=desc&sort=creation"
             + "&accepted=True&answers=2"
             + "&site=stackoverflow"
-            + "&filter=!4(Yr(ztczR*6OAdo1"
+            + "&filter=!Fcb8-IEX7ThAPGnNQjZJpIpIOD"
             + "&key=\(key)"
 
             guard let url = urlComponents.url else {
@@ -112,4 +108,27 @@ class NetworkService: NSObject {
             dataTask?.resume()
         }
     }
+
+    func getImage(urlString: String, completion: @escaping ((_ image: UIImage?, _ error: Error?) -> Void)) {
+
+        guard let imageURL = URL(string: urlString) else {
+            completion(nil, NSError.init(domain: "Bad URL", code: 0, userInfo: nil))
+            return
+        }
+
+        let t = session.dataTask(with: imageURL) { (imageData, response, error) in
+            guard let data = imageData else {
+                completion(nil, error)
+                return
+            }
+            guard let image = UIImage(data: data) else {
+                completion(nil, error)
+                return
+            }
+            completion(image, nil)
+        }
+        t.resume()
+    }
+
+
 }
