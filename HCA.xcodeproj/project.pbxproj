@@ -27,6 +27,15 @@
 		8ABF5D4A230CEF03001A1546 /* QuestionListLoadMoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABF5D48230CEF03001A1546 /* QuestionListLoadMoreTableViewCell.swift */; };
 		8ABF5D4B230CEF03001A1546 /* QuestionListLoadMoreTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8ABF5D49230CEF03001A1546 /* QuestionListLoadMoreTableViewCell.xib */; };
 		8ABF5D4E230DD6F9001A1546 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABF5D4D230DD6F9001A1546 /* Utils.swift */; };
+		8ABF5D50230DF4B9001A1546 /* StackOverflowAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABF5D4F230DF4B9001A1546 /* StackOverflowAnswer.swift */; };
+		8ABF5D52230DF4D2001A1546 /* StackOverflowAnswerList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABF5D51230DF4D2001A1546 /* StackOverflowAnswerList.swift */; };
+		8ABF5D55230DF966001A1546 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8ABF5D54230DF966001A1546 /* WebKit.framework */; };
+		8ABF5D58230E0B96001A1546 /* NSAttributedString+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABF5D57230E0B96001A1546 /* NSAttributedString+Extensions.swift */; };
+		8ABF5D5A230E0BB3001A1546 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABF5D59230E0BB3001A1546 /* UIView+Extensions.swift */; };
+		8ABF5D5D230E0CC1001A1546 /* AnswerListQuestionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABF5D5B230E0CC1001A1546 /* AnswerListQuestionTableViewCell.swift */; };
+		8ABF5D5E230E0CC1001A1546 /* AnswerListQuestionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8ABF5D5C230E0CC1001A1546 /* AnswerListQuestionTableViewCell.xib */; };
+		8ABF5D61230E0D05001A1546 /* AnswerListAnswerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABF5D5F230E0D05001A1546 /* AnswerListAnswerTableViewCell.swift */; };
+		8ABF5D62230E0D05001A1546 /* AnswerListAnswerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8ABF5D60230E0D05001A1546 /* AnswerListAnswerTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +73,15 @@
 		8ABF5D48230CEF03001A1546 /* QuestionListLoadMoreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionListLoadMoreTableViewCell.swift; sourceTree = "<group>"; };
 		8ABF5D49230CEF03001A1546 /* QuestionListLoadMoreTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestionListLoadMoreTableViewCell.xib; sourceTree = "<group>"; };
 		8ABF5D4D230DD6F9001A1546 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		8ABF5D4F230DF4B9001A1546 /* StackOverflowAnswer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackOverflowAnswer.swift; sourceTree = "<group>"; };
+		8ABF5D51230DF4D2001A1546 /* StackOverflowAnswerList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackOverflowAnswerList.swift; sourceTree = "<group>"; };
+		8ABF5D54230DF966001A1546 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		8ABF5D57230E0B96001A1546 /* NSAttributedString+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Extensions.swift"; sourceTree = "<group>"; };
+		8ABF5D59230E0BB3001A1546 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		8ABF5D5B230E0CC1001A1546 /* AnswerListQuestionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerListQuestionTableViewCell.swift; sourceTree = "<group>"; };
+		8ABF5D5C230E0CC1001A1546 /* AnswerListQuestionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnswerListQuestionTableViewCell.xib; sourceTree = "<group>"; };
+		8ABF5D5F230E0D05001A1546 /* AnswerListAnswerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerListAnswerTableViewCell.swift; sourceTree = "<group>"; };
+		8ABF5D60230E0D05001A1546 /* AnswerListAnswerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnswerListAnswerTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8ABF5D55230DF966001A1546 /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,6 +109,7 @@
 				8ABF5D0C230C63F4001A1546 /* HCA */,
 				8ABF5D24230C63F5001A1546 /* HCATests */,
 				8ABF5D0B230C63F4001A1546 /* Products */,
+				8ABF5D53230DF965001A1546 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,6 +125,7 @@
 		8ABF5D0C230C63F4001A1546 /* HCA */ = {
 			isa = PBXGroup;
 			children = (
+				8ABF5D56230E0A02001A1546 /* Extension */,
 				8ABF5D4C230DD6E4001A1546 /* Util */,
 				8ABF5D31230C7AE5001A1546 /* Network */,
 				8ABF5D30230C66CA001A1546 /* Models */,
@@ -119,6 +140,10 @@
 				8ABF5D49230CEF03001A1546 /* QuestionListLoadMoreTableViewCell.xib */,
 				8ABF5D40230CDE00001A1546 /* AnswerListViewController.swift */,
 				8ABF5D41230CDE00001A1546 /* AnswerListViewController.xib */,
+				8ABF5D5B230E0CC1001A1546 /* AnswerListQuestionTableViewCell.swift */,
+				8ABF5D5C230E0CC1001A1546 /* AnswerListQuestionTableViewCell.xib */,
+				8ABF5D5F230E0D05001A1546 /* AnswerListAnswerTableViewCell.swift */,
+				8ABF5D60230E0D05001A1546 /* AnswerListAnswerTableViewCell.xib */,
 				8ABF5D11230C63F4001A1546 /* Main.storyboard */,
 				8ABF5D17230C63F5001A1546 /* Assets.xcassets */,
 				8ABF5D19230C63F5001A1546 /* LaunchScreen.storyboard */,
@@ -140,6 +165,8 @@
 		8ABF5D30230C66CA001A1546 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				8ABF5D4F230DF4B9001A1546 /* StackOverflowAnswer.swift */,
+				8ABF5D51230DF4D2001A1546 /* StackOverflowAnswerList.swift */,
 				8ABF5D36230CB55A001A1546 /* StackOverflowQuestion.swift */,
 				8ABF5D38230CD48E001A1546 /* StackOverflowQuestionList.swift */,
 			);
@@ -160,6 +187,23 @@
 				8ABF5D4D230DD6F9001A1546 /* Utils.swift */,
 			);
 			path = Util;
+			sourceTree = "<group>";
+		};
+		8ABF5D53230DF965001A1546 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8ABF5D54230DF966001A1546 /* WebKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8ABF5D56230E0A02001A1546 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				8ABF5D57230E0B96001A1546 /* NSAttributedString+Extensions.swift */,
+				8ABF5D59230E0BB3001A1546 /* UIView+Extensions.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -246,7 +290,9 @@
 				8ABF5D1B230C63F5001A1546 /* LaunchScreen.storyboard in Resources */,
 				8ABF5D18230C63F5001A1546 /* Assets.xcassets in Resources */,
 				8ABF5D4B230CEF03001A1546 /* QuestionListLoadMoreTableViewCell.xib in Resources */,
+				8ABF5D5E230E0CC1001A1546 /* AnswerListQuestionTableViewCell.xib in Resources */,
 				8ABF5D3F230CDDD6001A1546 /* QuestionListViewController.xib in Resources */,
+				8ABF5D62230E0D05001A1546 /* AnswerListAnswerTableViewCell.xib in Resources */,
 				8ABF5D47230CE866001A1546 /* QuestionTableViewCell.xib in Resources */,
 				8ABF5D43230CDE00001A1546 /* AnswerListViewController.xib in Resources */,
 				8ABF5D13230C63F4001A1546 /* Main.storyboard in Resources */,
@@ -270,15 +316,21 @@
 				8ABF5D10230C63F4001A1546 /* ViewController.swift in Sources */,
 				8ABF5D46230CE866001A1546 /* QuestionTableViewCell.swift in Sources */,
 				8ABF5D0E230C63F4001A1546 /* AppDelegate.swift in Sources */,
+				8ABF5D50230DF4B9001A1546 /* StackOverflowAnswer.swift in Sources */,
 				8ABF5D39230CD48E001A1546 /* StackOverflowQuestionList.swift in Sources */,
 				8ABF5D3B230CDD77001A1546 /* QuestionSplitViewController.swift in Sources */,
+				8ABF5D5A230E0BB3001A1546 /* UIView+Extensions.swift in Sources */,
 				8ABF5D3E230CDDD6001A1546 /* QuestionListViewController.swift in Sources */,
 				8ABF5D4A230CEF03001A1546 /* QuestionListLoadMoreTableViewCell.swift in Sources */,
 				8ABF5D33230CB39A001A1546 /* NetworkService.swift in Sources */,
 				8ABF5D42230CDE00001A1546 /* AnswerListViewController.swift in Sources */,
 				8ABF5D37230CB55A001A1546 /* StackOverflowQuestion.swift in Sources */,
 				8ABF5D16230C63F4001A1546 /* HCA.xcdatamodeld in Sources */,
+				8ABF5D52230DF4D2001A1546 /* StackOverflowAnswerList.swift in Sources */,
+				8ABF5D58230E0B96001A1546 /* NSAttributedString+Extensions.swift in Sources */,
+				8ABF5D5D230E0CC1001A1546 /* AnswerListQuestionTableViewCell.swift in Sources */,
 				8ABF5D4E230DD6F9001A1546 /* Utils.swift in Sources */,
+				8ABF5D61230E0D05001A1546 /* AnswerListAnswerTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
