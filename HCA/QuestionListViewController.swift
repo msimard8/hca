@@ -9,10 +9,12 @@
 import UIKit
 
 protocol QuestionListViewControllerDelegate: class {
-    
+    func didSelectQuestion(question:StackOverflowQuestion)
 }
 
 class QuestionListViewController: UIViewController {
+
+    weak var delegate:QuestionListViewControllerDelegate?
 
     @IBOutlet weak var questionsTableView: UITableView!
     var questions = [StackOverflowQuestion]()
@@ -120,6 +122,10 @@ extension QuestionListViewController: UITableViewDataSource {
         default:
             return  questions.count + 1
         }
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        delegate?.didSelectQuestion(question: questions[indexPath.row])
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
