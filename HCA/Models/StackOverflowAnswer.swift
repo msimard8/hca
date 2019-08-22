@@ -14,7 +14,9 @@ struct StackOverflowAnswer:Codable {
     var answerId:Int
     var creationDate:Date
     var body:String
+    var owner:StackOverflowOwner
     enum CodingKeys: String, CodingKey {
+        case owner = "owner"
         case body = "body"
         case score = "score"
         case answerId = "answer_id"
