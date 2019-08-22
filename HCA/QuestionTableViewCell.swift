@@ -23,6 +23,15 @@ class QuestionTableViewCell: UITableViewCell {
                 self.dateLabel.text = "Asked On:  \(Utils.formatDate(date: self.question?.creationDate ?? Date()))"
                 self.numberOfAnswerLabel.text = "No. of Answers: \(self.question?.answerCount ?? 0)"
 
+                let font = UIFont.systemFont(ofSize: 18, weight: .bold) 
+                let attributes: [NSAttributedString.Key: Any] = [
+                    .foregroundColor: UIColor.black,
+                    .font: font
+                ]
+                let attributedString = NSMutableAttributedString.init(html: self.question?.title ?? "")
+                self.questionTitleLabel.numberOfLines = 0
+                attributedString?.addAttributes(attributes, range: NSRange(location: 0, length: (attributedString?.length ?? 0)))
+                self.questionTitleLabel.attributedText = attributedString
 
             }
         }
