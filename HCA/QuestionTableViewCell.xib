@@ -19,7 +19,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="300" height="219.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="st6-vO-YBt">
+                    <view contentMode="scaleToFill" verticalHuggingPriority="247" translatesAutoresizingMaskIntoConstraints="NO" id="st6-vO-YBt">
                         <rect key="frame" x="15" y="15" width="270" height="189.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No. of Answers: 5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AQz-0W-no4">
@@ -28,7 +28,7 @@
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ACt-TE-JD0">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="247" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ACt-TE-JD0">
                                 <rect key="frame" x="5" y="31" width="260" height="101.5"/>
                                 <string key="text">Dask distributed LocalCluster fails with &amp;quot;TypeError: can&amp;#39;t pickle _thread._local objects&amp;quot; when using dask.array.store to hdf5 file</string>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
@@ -52,7 +52,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="141.5" id="1Wo-aL-7UU"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="120" id="1Wo-aL-7UU"/>
                             <constraint firstItem="ACt-TE-JD0" firstAttribute="leading" secondItem="YZg-hG-ynX" secondAttribute="leading" constant="5" id="1lR-Fc-F5U"/>
                             <constraint firstItem="ACt-TE-JD0" firstAttribute="top" secondItem="AQz-0W-no4" secondAttribute="bottom" constant="5" id="HRv-65-KkW"/>
                             <constraint firstItem="YZg-hG-ynX" firstAttribute="trailing" secondItem="AQz-0W-no4" secondAttribute="trailing" constant="5" id="MAq-US-4rd"/>
