@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8AB80339230F144A00AD2700 /* StackOverflowOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB80338230F144A00AD2700 /* StackOverflowOwner.swift */; };
+		8AB8033B230F1C0B00AD2700 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB8033A230F1C0B00AD2700 /* ImageCache.swift */; };
 		8ABF5D0E230C63F4001A1546 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABF5D0D230C63F4001A1546 /* AppDelegate.swift */; };
 		8ABF5D10230C63F4001A1546 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABF5D0F230C63F4001A1546 /* ViewController.swift */; };
 		8ABF5D13230C63F4001A1546 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8ABF5D11230C63F4001A1546 /* Main.storyboard */; };
@@ -36,6 +38,7 @@
 		8ABF5D5E230E0CC1001A1546 /* AnswerListQuestionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8ABF5D5C230E0CC1001A1546 /* AnswerListQuestionTableViewCell.xib */; };
 		8ABF5D61230E0D05001A1546 /* AnswerListAnswerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABF5D5F230E0D05001A1546 /* AnswerListAnswerTableViewCell.swift */; };
 		8ABF5D62230E0D05001A1546 /* AnswerListAnswerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8ABF5D60230E0D05001A1546 /* AnswerListAnswerTableViewCell.xib */; };
+		8ABF5D65230EDA98001A1546 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8ABF5D64230EDA98001A1546 /* Media.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8AB80338230F144A00AD2700 /* StackOverflowOwner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackOverflowOwner.swift; sourceTree = "<group>"; };
+		8AB8033A230F1C0B00AD2700 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		8ABF5D0A230C63F4001A1546 /* HCA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HCA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8ABF5D0D230C63F4001A1546 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8ABF5D0F230C63F4001A1546 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -82,6 +87,7 @@
 		8ABF5D5C230E0CC1001A1546 /* AnswerListQuestionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnswerListQuestionTableViewCell.xib; sourceTree = "<group>"; };
 		8ABF5D5F230E0D05001A1546 /* AnswerListAnswerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerListAnswerTableViewCell.swift; sourceTree = "<group>"; };
 		8ABF5D60230E0D05001A1546 /* AnswerListAnswerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnswerListAnswerTableViewCell.xib; sourceTree = "<group>"; };
+		8ABF5D64230EDA98001A1546 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +112,7 @@
 		8ABF5D01230C63F4001A1546 = {
 			isa = PBXGroup;
 			children = (
+				8ABF5D63230EDA79001A1546 /* Assets */,
 				8ABF5D0C230C63F4001A1546 /* HCA */,
 				8ABF5D24230C63F5001A1546 /* HCATests */,
 				8ABF5D0B230C63F4001A1546 /* Products */,
@@ -169,6 +176,8 @@
 				8ABF5D51230DF4D2001A1546 /* StackOverflowAnswerList.swift */,
 				8ABF5D36230CB55A001A1546 /* StackOverflowQuestion.swift */,
 				8ABF5D38230CD48E001A1546 /* StackOverflowQuestionList.swift */,
+				8AB80338230F144A00AD2700 /* StackOverflowOwner.swift */,
+				8AB8033A230F1C0B00AD2700 /* ImageCache.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -204,6 +213,14 @@
 				8ABF5D59230E0BB3001A1546 /* UIView+Extensions.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		8ABF5D63230EDA79001A1546 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				8ABF5D64230EDA98001A1546 /* Media.xcassets */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -287,6 +304,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8ABF5D65230EDA98001A1546 /* Media.xcassets in Resources */,
 				8ABF5D1B230C63F5001A1546 /* LaunchScreen.storyboard in Resources */,
 				8ABF5D18230C63F5001A1546 /* Assets.xcassets in Resources */,
 				8ABF5D4B230CEF03001A1546 /* QuestionListLoadMoreTableViewCell.xib in Resources */,
@@ -319,9 +337,11 @@
 				8ABF5D50230DF4B9001A1546 /* StackOverflowAnswer.swift in Sources */,
 				8ABF5D39230CD48E001A1546 /* StackOverflowQuestionList.swift in Sources */,
 				8ABF5D3B230CDD77001A1546 /* QuestionSplitViewController.swift in Sources */,
+				8AB80339230F144A00AD2700 /* StackOverflowOwner.swift in Sources */,
 				8ABF5D5A230E0BB3001A1546 /* UIView+Extensions.swift in Sources */,
 				8ABF5D3E230CDDD6001A1546 /* QuestionListViewController.swift in Sources */,
 				8ABF5D4A230CEF03001A1546 /* QuestionListLoadMoreTableViewCell.swift in Sources */,
+				8AB8033B230F1C0B00AD2700 /* ImageCache.swift in Sources */,
 				8ABF5D33230CB39A001A1546 /* NetworkService.swift in Sources */,
 				8ABF5D42230CDE00001A1546 /* AnswerListViewController.swift in Sources */,
 				8ABF5D37230CB55A001A1546 /* StackOverflowQuestion.swift in Sources */,
