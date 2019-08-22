@@ -15,12 +15,14 @@ struct StackOverflowQuestion:Codable {
     var questionId:Int
     var title:String
     var creationDate:Date
+    var owner:StackOverflowOwner
     enum CodingKeys: String, CodingKey {
         case acceptedAnswerId = "accepted_answer_id"
         case answerCount = "answer_count"
         case questionId = "question_id"
         case title = "title"
         case creationDate = "creation_date"
+        case owner = "owner"
     }
 }
 
