@@ -19,10 +19,8 @@ class QuestionSplitViewController: UISplitViewController {
         let _ = answerListViewController.view
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
 
-        self.preferredPrimaryColumnWidthFraction = 0.45
         let questionListViewController = QuestionListViewController()
-        self.maximumPrimaryColumnWidth = self.view.bounds.size.width/2.0
-        questionListViewController.delegate = self 
+        questionListViewController.delegate = self
 
         let navigationController = UINavigationController(rootViewController: questionListViewController)
         navigationController.navigationBar.barTintColor = UIColor(red: 0, green: 0.4118, blue: 0.8588, alpha: 1.0)
@@ -35,6 +33,9 @@ class QuestionSplitViewController: UISplitViewController {
         let placeHolderVc = UIViewController()
         placeHolderVc.view.backgroundColor = .white
         self.viewControllers = [navigationController, placeHolderVc ]
+
+        self.preferredPrimaryColumnWidthFraction = 0.45
+        self.maximumPrimaryColumnWidth = self.view.bounds.size.width/2.0
 
         self.preferredDisplayMode = .allVisible
         delegate = self
@@ -73,6 +74,7 @@ extension QuestionSplitViewController: UISplitViewControllerDelegate {
 
 extension QuestionSplitViewController: QuestionListViewControllerDelegate {
     func didSelectQuestion(question: StackOverflowQuestion) {
+
         answerListViewController.question = question
      //   answerListViewController.loadView()
         self.showDetailViewController(answerListNavigationController, sender: self)
