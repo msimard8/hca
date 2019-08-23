@@ -16,14 +16,17 @@ class AnswerListViewController: UIViewController {
     var question : StackOverflowQuestion? {
         didSet {
             DispatchQueue.main.async {
-                self.answers = []
-                self.answersTableView?.scrollRectToVisible(.zero, animated: false)
-                self.answersTableView?.reloadData()
+
+                self.answersTableView?.isHidden = true
+                self.answersTableView?.setContentOffset(.zero, animated:false)
 
                 NetworkService.shared.getAnswers(questionId: self.question?.questionId ?? 0) { (answerList) in
                     self.answers = answerList.answerListWithBestFirst()
                     DispatchQueue.main.async {
                         self.answersTableView?.reloadData()
+                        self.answersTableView?.isHidden = false
+
+
                     }
                 }
             }
@@ -36,9 +39,7 @@ class AnswerListViewController: UIViewController {
         
         answersTableView?.estimatedRowHeight = 55
         answersTableView?.rowHeight = UITableView.automaticDimension
-        
         answersTableView?.register(UINib(nibName: "AnswerListQuestionTableViewCell", bundle: nil), forCellReuseIdentifier: AnswerListQuestionTableViewCell.identifier)
-        
         answersTableView?.register(UINib(nibName: "AnswerListAnswerTableViewCell", bundle: nil), forCellReuseIdentifier: AnswerListAnswerTableViewCell.identifier)
         // Do any additional setup after loading the view.
     }
@@ -92,8 +93,9 @@ extension AnswerListViewController : UITableViewDataSource {
             guard let answerListAnswerCell = tableView.dequeueReusableCell(withIdentifier: AnswerListAnswerTableViewCell.identifier, for: indexPath) as? AnswerListAnswerTableViewCell else{
                 return UITableViewCell()
             }
-            answerListAnswerCell.answer = answers[indexPath.row - 1]
-
+            if answers.count > 0 {
+                answerListAnswerCell.answer = answers[indexPath.row - 1]
+            }
             return answerListAnswerCell
         }
     }
