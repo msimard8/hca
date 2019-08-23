@@ -65,7 +65,7 @@ class NetworkService: NSObject {
 
     }
 
-    func getRecentQuestions(page:Int = 1, date:Date = Date.init(timeIntervalSinceNow: 0), completion: @escaping((_ questionList: StackOverflowQuestionList) -> Void)){
+    func getRecentQuestions(page:Int = 1, date:Date = Date.init(timeIntervalSinceNow: 0), completion: @escaping((_ questionList: StackOverflowQuestionList?) -> Void)){
 
         decoder.dateDecodingStrategy = .secondsSince1970
 
@@ -77,7 +77,7 @@ class NetworkService: NSObject {
             + "&order=desc&sort=creation"
             + "&accepted=True&answers=2"
             + "&site=stackoverflow"
-            + "&filter=!Fcb8-IEX7ThAPGnNQjZJpIpIOD"
+            + "&filter=!.FjtmoGIogKGfL93TUUw1f7UHRoCT"
             + "&key=\(key)"
 
             guard let url = urlComponents.url else {
@@ -96,8 +96,8 @@ class NetworkService: NSObject {
                     let data = data,
                     let response = response as? HTTPURLResponse,
                     response.statusCode == 200 {
-                    let questions = try! self?.decoder.decode(StackOverflowQuestionList.self, from: data)
-                    completion(questions!)
+                    let questions = try? self?.decoder.decode(StackOverflowQuestionList.self, from: data)
+                    completion(questions)
                     print (questions!.quotaRemaining)
 
                 }
