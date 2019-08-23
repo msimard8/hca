@@ -22,8 +22,8 @@ class QuestionSplitViewController: UISplitViewController {
         let questionListViewController = QuestionListViewController()
         questionListViewController.delegate = self
         let navigationController = UINavigationController(rootViewController: questionListViewController)
-        navigationController.navigationBar.barTintColor = UIColor(red: 0, green: 0.4118, blue: 0.8588, alpha: 1.0)
-        answerListNavigationController.navigationBar.barTintColor = UIColor(red: 0, green: 0.4118, blue: 0.8588, alpha: 1.0)
+        navigationController.navigationBar.barTintColor = UIColor.Primary.Blue
+        answerListNavigationController.navigationBar.barTintColor = UIColor.Primary.Blue
 
         answerListViewController.navigationItem.rightBarButtonItem = self.displayModeButtonItem
         UIBarButtonItem.appearance().tintColor = UIColor.white
@@ -49,7 +49,9 @@ class QuestionSplitViewController: UISplitViewController {
 }
 
 extension QuestionSplitViewController: UISplitViewControllerDelegate {
-    func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
+    func splitViewController(_ splitViewController: UISplitViewController,
+                             collapseSecondary secondaryViewController: UIViewController,
+                             onto primaryViewController: UIViewController) -> Bool {
         return true
     }
 }

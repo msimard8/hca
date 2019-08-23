@@ -35,7 +35,7 @@ class AnswerListAnswerTableViewCell: UITableViewCell {
             nameLabel.text = "\(answer?.owner.displayName ?? "anonymous") (\(answer?.owner.reputation ?? 0))"
 
              if answer?.isAccepted ?? false {
-                cardBackgroundView.backgroundColor = UIColor(red: 187.0/255.0, green: 224.0/255.0, blue: 255.0/255.0, alpha: 1.0)
+                cardBackgroundView.backgroundColor = UIColor.Secondary.Blue
                 checkmarkImageView.isHidden = false
 
             } else {

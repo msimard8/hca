@@ -32,7 +32,9 @@ class QuestionListTableViewCell: UITableViewCell {
                 ]
                 let attributedString = NSMutableAttributedString.init(html: self.question?.title ?? "")
                 self.questionTitleLabel.numberOfLines = 0
-                attributedString?.addAttributes(attributes, range: NSRange(location: 0, length: (attributedString?.length ?? 0)))
+                attributedString?.addAttributes(attributes,
+                                                range: NSRange(location: 0,
+                                                               length: (attributedString?.length ?? 0)))
                 self.questionTitleLabel.attributedText = attributedString
             }
         }
@@ -48,7 +50,7 @@ class QuestionListTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         if selected {
-            cardViewBackground.backgroundColor  =  UIColor(red: 187.0/255.0, green: 224.0/255.0, blue: 255.0/255.0, alpha: 1.0)
+            cardViewBackground.backgroundColor  = UIColor.Secondary.Blue
         } else {
             cardViewBackground.backgroundColor = .white
         }

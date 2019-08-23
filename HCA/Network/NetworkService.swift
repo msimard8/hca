@@ -59,7 +59,9 @@ class NetworkService: NSObject {
         }
     }
 
-    func getRecentQuestions(page: Int = 1, date: Date = Date.init(timeIntervalSinceNow: 0), completion: @escaping((_ questionList: StackOverflowQuestionList?) -> Void)) {
+    func getRecentQuestions(page: Int = 1,
+                            date: Date = Date.init(timeIntervalSinceNow: 0),
+                            completion: @escaping((_ questionList: StackOverflowQuestionList?) -> Void)) {
 
         decoder.dateDecodingStrategy = .secondsSince1970
 

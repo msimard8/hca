@@ -24,8 +24,10 @@ class QuestionListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        questionsTableView.register(UINib(nibName: "QuestionListTableViewCell", bundle: nil), forCellReuseIdentifier: QuestionListTableViewCell.identifier)
-        questionsTableView.register(UINib(nibName: "QuestionListLoadMoreTableViewCell", bundle: nil), forCellReuseIdentifier: QuestionListLoadMoreTableViewCell.identifier)
+        questionsTableView.register(UINib(nibName: "QuestionListTableViewCell", bundle: nil),
+                                    forCellReuseIdentifier: QuestionListTableViewCell.identifier)
+        questionsTableView.register(UINib(nibName: "QuestionListLoadMoreTableViewCell", bundle: nil),
+                                    forCellReuseIdentifier: QuestionListLoadMoreTableViewCell.identifier)
         questionsTableView.estimatedRowHeight = 150
         questionsTableView.rowHeight = UITableView.automaticDimension
         let refreshControl = UIRefreshControl()
@@ -148,12 +150,16 @@ extension QuestionListViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == questions.count {
-            guard let loadMoreTableViewCell = tableView.dequeueReusableCell(withIdentifier: QuestionListLoadMoreTableViewCell.identifier, for: indexPath) as? QuestionListLoadMoreTableViewCell else {
+            guard let loadMoreTableViewCell = tableView.dequeueReusableCell(
+                withIdentifier: QuestionListLoadMoreTableViewCell.identifier,
+                for: indexPath) as? QuestionListLoadMoreTableViewCell else {
                 return UITableViewCell()
             }
             return loadMoreTableViewCell
         } else {
-            guard let questionTableViewCell = tableView.dequeueReusableCell(withIdentifier: QuestionListTableViewCell.identifier, for: indexPath) as? QuestionListTableViewCell else {
+            guard let questionTableViewCell = tableView.dequeueReusableCell(
+                withIdentifier: QuestionListTableViewCell.identifier,
+                for: indexPath) as? QuestionListTableViewCell else {
                 return UITableViewCell()
             }
             questionTableViewCell.question = questions[indexPath.row]

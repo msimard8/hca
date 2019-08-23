@@ -30,7 +30,8 @@ class AnswerListQuestionTableViewCell: UITableViewCell {
             ]
             let attributedString = NSMutableAttributedString.init(html: question?.title ?? "")
             questionAttributedLabel.numberOfLines = 0
-            attributedString?.addAttributes(attributes, range: NSRange(location: 0, length: (attributedString?.length ?? 0)))
+            attributedString?.addAttributes(attributes,
+                                            range: NSRange(location: 0, length: (attributedString?.length ?? 0)))
             questionAttributedLabel.attributedText = attributedString
 
             let bodyFont = UIFont.systemFont(ofSize: 18)
@@ -41,7 +42,9 @@ class AnswerListQuestionTableViewCell: UITableViewCell {
                 .foregroundColor: UIColor.white
                 ]
 
-            bodyAttributedString?.addAttributes(colorattribute, range: NSRange(location: 0, length: (bodyAttributedString?.length ?? 0)))
+            bodyAttributedString?.addAttributes(colorattribute,
+                                                range: NSRange(location: 0,
+                                                               length: (bodyAttributedString?.length ?? 0)))
             bodyAttributedString?.setFontFace(font: bodyFont, color: .white)
             bodyAttributedLabel.attributedText = bodyAttributedString
         }
