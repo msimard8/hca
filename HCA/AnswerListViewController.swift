@@ -12,16 +12,18 @@ import WebKit
 class AnswerListViewController: UIViewController {
     @IBOutlet weak var answersTableView: UITableView?
 
+    @IBOutlet weak var loadingActivityIndicator: UIActivityIndicatorView!
     var question: StackOverflowQuestion? {
         didSet {
             DispatchQueue.main.async {
 
                 self.answersTableView?.isHidden = true
                 self.answersTableView?.setContentOffset(.zero, animated: false)
-
+                self.loadingActivityIndicator.isHidden = false
                 NetworkService.shared.getAnswers(questionId: self.question?.questionId ?? 0) { (answerList) in
                     self.answers = answerList?.answerListWithBestFirst() ?? []
                     DispatchQueue.main.async {
+                        self.loadingActivityIndicator.isHidden = true
                         self.answersTableView?.reloadData()
                         self.answersTableView?.isHidden = false
                     }

@@ -13,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AnswerListViewController" customModule="HCA" customModuleProvider="target">
             <connections>
                 <outlet property="answersTableView" destination="c7n-3f-H4h" id="bvf-8i-eX2"/>
+                <outlet property="loadingActivityIndicator" destination="zhx-13-kbP" id="T8S-xx-aHa"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -29,12 +30,18 @@
                         <outlet property="delegate" destination="-1" id="EDA-eu-kd3"/>
                     </connections>
                 </tableView>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="zhx-13-kbP">
+                    <rect key="frame" x="188.5" y="434.5" width="37" height="37"/>
+                    <color key="color" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstItem="zhx-13-kbP" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="Klp-6G-809"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="c7n-3f-H4h" secondAttribute="trailing" id="b5K-rR-XG0"/>
                 <constraint firstItem="c7n-3f-H4h" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="e6x-dH-lzB"/>
                 <constraint firstItem="c7n-3f-H4h" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="tae-AQ-3MD"/>
+                <constraint firstItem="zhx-13-kbP" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="tay-gV-adn"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="c7n-3f-H4h" secondAttribute="bottom" id="vdu-dL-xBX"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
