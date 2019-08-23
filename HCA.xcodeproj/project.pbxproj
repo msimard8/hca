@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A3AAF21231082DF00C47D46 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3AAF20231082DF00C47D46 /* UIColor+Extensions.swift */; };
 		8A6E4A13230F72FF006E2DE6 /* QuestionListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6E4A11230F72FF006E2DE6 /* QuestionListTableViewCell.swift */; };
 		8A6E4A14230F72FF006E2DE6 /* QuestionListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A6E4A12230F72FF006E2DE6 /* QuestionListTableViewCell.xib */; };
 		8AB80339230F144A00AD2700 /* StackOverflowOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB80338230F144A00AD2700 /* StackOverflowOwner.swift */; };
@@ -52,6 +53,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8A3AAF20231082DF00C47D46 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		8A6E4A11230F72FF006E2DE6 /* QuestionListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionListTableViewCell.swift; sourceTree = "<group>"; };
 		8A6E4A12230F72FF006E2DE6 /* QuestionListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestionListTableViewCell.xib; sourceTree = "<group>"; };
 		8AB80338230F144A00AD2700 /* StackOverflowOwner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackOverflowOwner.swift; sourceTree = "<group>"; };
@@ -211,6 +213,7 @@
 			children = (
 				8ABF5D57230E0B96001A1546 /* NSAttributedString+Extensions.swift */,
 				8ABF5D59230E0BB3001A1546 /* UIView+Extensions.swift */,
+				8A3AAF20231082DF00C47D46 /* UIColor+Extensions.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -356,6 +359,7 @@
 				8ABF5D50230DF4B9001A1546 /* StackOverflowAnswer.swift in Sources */,
 				8ABF5D39230CD48E001A1546 /* StackOverflowQuestionList.swift in Sources */,
 				8ABF5D3B230CDD77001A1546 /* QuestionSplitViewController.swift in Sources */,
+				8A3AAF21231082DF00C47D46 /* UIColor+Extensions.swift in Sources */,
 				8A6E4A13230F72FF006E2DE6 /* QuestionListTableViewCell.swift in Sources */,
 				8AB80339230F144A00AD2700 /* StackOverflowOwner.swift in Sources */,
 				8ABF5D5A230E0BB3001A1546 /* UIView+Extensions.swift in Sources */,
