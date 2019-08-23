@@ -9,8 +9,8 @@
 import UIKit
 
 protocol ImageContainingTableViewCell {
-    func setImage(image:UIImage?)
-    var imageURL:String {get}
+    func setImage(image: UIImage?)
+    var imageURL: String {get}
 }
 
 class AnswerListAnswerTableViewCell: UITableViewCell {
@@ -23,7 +23,7 @@ class AnswerListAnswerTableViewCell: UITableViewCell {
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var checkmarkImageView: UIImageView!
 
-    var answer:StackOverflowAnswer? {
+    var answer: StackOverflowAnswer? {
         didSet {
             let font = UIFont.systemFont(ofSize: 18)
             let attributedString = NSMutableAttributedString.init(html: answer?.body ?? "")
@@ -38,8 +38,7 @@ class AnswerListAnswerTableViewCell: UITableViewCell {
                 cardBackgroundView.backgroundColor = UIColor(red: 187.0/255.0, green: 224.0/255.0, blue: 255.0/255.0, alpha: 1.0)
                 checkmarkImageView.isHidden = false
 
-            }
-            else {
+            } else {
                 cardBackgroundView.backgroundColor = .white
                 checkmarkImageView.isHidden = true
             }
@@ -58,14 +57,11 @@ class AnswerListAnswerTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
 }
 
-extension AnswerListAnswerTableViewCell : ImageContainingTableViewCell {
+extension AnswerListAnswerTableViewCell: ImageContainingTableViewCell {
     var imageURL: String {
-        get {
             return answer?.owner.profileImage ?? ""
-        }
     }
 
     func setImage(image: UIImage?) {

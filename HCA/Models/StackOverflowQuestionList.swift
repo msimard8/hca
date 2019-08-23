@@ -8,11 +8,11 @@
 
 import Foundation
 
-struct StackOverflowQuestionList:Codable {
+struct StackOverflowQuestionList: Codable {
 
-    var quotaRemaining:Int
+    var quotaRemaining: Int
 
-    var questions:[StackOverflowQuestion]
+    var questions: [StackOverflowQuestion]
     enum CodingKeys: String, CodingKey {
         case questions = "items"
         case quotaRemaining = "quota_remaining"

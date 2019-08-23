@@ -16,10 +16,9 @@ class QuestionListTableViewCell: UITableViewCell {
     @IBOutlet weak var patientNameLabel: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
 
-
     static let identifier = "QuestionListTableViewCell"
-    var question:StackOverflowQuestion? {
-        didSet{
+    var question: StackOverflowQuestion? {
+        didSet {
             DispatchQueue.main.async {
                 self.questionTitleLabel.text = self.question?.title
                 self.dateLabel.text = "Asked on: \(Utils.formatDate(date: self.question?.creationDate ?? Date()))"
@@ -50,26 +49,21 @@ class QuestionListTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
         if selected {
             cardViewBackground.backgroundColor  =  UIColor(red: 187.0/255.0, green: 224.0/255.0, blue: 255.0/255.0, alpha: 1.0)
-        }
-        else {
+        } else {
             cardViewBackground.backgroundColor = .white
         }
         // Configure the view for the selected state
     }
-
 }
 
-extension QuestionListTableViewCell : ImageContainingTableViewCell {
+extension QuestionListTableViewCell: ImageContainingTableViewCell {
     func setImage(image: UIImage?) {
         DispatchQueue.main.async {
             self.profileImageView.image = image
-
         }
     }
 
     var imageURL: String {
         return question?.owner.profileImage ?? ""
     }
-
-
 }

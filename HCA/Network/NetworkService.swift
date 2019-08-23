@@ -10,7 +10,7 @@ import UIKit
 
 class NetworkService: NSObject {
     let baseURL = "https://api.stackexchange.com/2.2"
-    let key:String = "wV5REhLr1WpnH1aejgbZHw(("
+    let key: String = "wV5REhLr1WpnH1aejgbZHw(("
     let pageSize = 20
     let session = URLSession(configuration: .default)
     var dataTask: URLSessionDataTask?
@@ -21,8 +21,7 @@ class NetworkService: NSObject {
         return instance
     }()
 
-
-    func getAnswers (questionId:Int, completion: @escaping((_ questionList: StackOverflowAnswerList) -> Void)){
+    func getAnswers (questionId: Int, completion: @escaping((_ answerList: StackOverflowAnswerList?) -> Void)) {
 
         decoder.dateDecodingStrategy = .secondsSince1970
 
@@ -46,26 +45,21 @@ class NetworkService: NSObject {
 
                 if let error = error {
                     print ("Error \(error.localizedDescription)")
-                }
-                else if
+                } else if
                     let data = data,
                     let response = response as? HTTPURLResponse,
                     response.statusCode == 200 {
-                    let answers = try! self?.decoder.decode(StackOverflowAnswerList.self, from: data)
-                    completion(answers!)
-
-                }
-                else {
+                    let answers = try? self?.decoder.decode(StackOverflowAnswerList.self, from: data)
+                    completion(answers)
+                } else {
                     //assume error
                 }
             }
             dataTask?.resume()
         }
-
-
     }
 
-    func getRecentQuestions(page:Int = 1, date:Date = Date.init(timeIntervalSinceNow: 0), completion: @escaping((_ questionList: StackOverflowQuestionList?) -> Void)){
+    func getRecentQuestions(page: Int = 1, date: Date = Date.init(timeIntervalSinceNow: 0), completion: @escaping((_ questionList: StackOverflowQuestionList?) -> Void)) {
 
         decoder.dateDecodingStrategy = .secondsSince1970
 
@@ -91,15 +85,13 @@ class NetworkService: NSObject {
 
                 if let error = error {
                     print ("Error \(error.localizedDescription)")
-                }
-                else if
+                } else if
                     let data = data,
                     let response = response as? HTTPURLResponse,
                     response.statusCode == 200 {
                     let questions = try? self?.decoder.decode(StackOverflowQuestionList.self, from: data)
                     completion(questions)
-                }
-                else {
+                } else {
                     //assume error
                 }
             }
@@ -114,7 +106,7 @@ class NetworkService: NSObject {
             return
         }
 
-        let t = session.dataTask(with: imageURL) { (imageData, response, error) in
+        let task = session.dataTask(with: imageURL) { (imageData, _, error) in
             guard let data = imageData else {
                 completion(nil, error)
                 return
@@ -125,8 +117,6 @@ class NetworkService: NSObject {
             }
             completion(image, nil)
         }
-        t.resume()
+        task.resume()
     }
-
-
 }

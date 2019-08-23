@@ -8,15 +8,14 @@
 
 import Foundation
 
-
-struct StackOverflowQuestion:Codable {
-    var acceptedAnswerId:Int?
-    var answerCount:Int
-    var questionId:Int
-    var title:String
-    var creationDate:Date
-    var body:String
-    var owner:StackOverflowOwner
+struct StackOverflowQuestion: Codable {
+    var acceptedAnswerId: Int?
+    var answerCount: Int
+    var questionId: Int
+    var title: String
+    var creationDate: Date
+    var body: String
+    var owner: StackOverflowOwner
     enum CodingKeys: String, CodingKey {
         case acceptedAnswerId = "accepted_answer_id"
         case answerCount = "answer_count"
@@ -27,5 +26,3 @@ struct StackOverflowQuestion:Codable {
         case body = "body"
     }
 }
-
-

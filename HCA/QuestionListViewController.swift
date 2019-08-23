@@ -9,12 +9,12 @@
 import UIKit
 
 protocol QuestionListViewControllerDelegate: class {
-    func didSelectQuestion(question:StackOverflowQuestion)
+    func didSelectQuestion(question: StackOverflowQuestion)
 }
 
 class QuestionListViewController: UIViewController {
 
-    weak var delegate:QuestionListViewControllerDelegate?
+    weak var delegate: QuestionListViewControllerDelegate?
 
     @IBOutlet weak var questionsTableView: UITableView!
     var questions = [StackOverflowQuestion]()
@@ -39,13 +39,13 @@ class QuestionListViewController: UIViewController {
         refreshData()
     }
 
-    @objc func refreshData(){
+    @objc func refreshData() {
         date = Date()
-        NetworkService.shared.getRecentQuestions(page:1, date: Date()) { (list) in
+        NetworkService.shared.getRecentQuestions(page: 1, date: Date()) { (list) in
             guard let questionList = list else {
                 return
             }
-            self.pagesLoaded = 1;
+            self.pagesLoaded = 1
             self.questions = questionList.questions
             DispatchQueue.main.async {
                 self.questionsTableView.refreshControl?.endRefreshing()
@@ -54,9 +54,9 @@ class QuestionListViewController: UIViewController {
         }
     }
 
-    func getQuestionsForNextPage(){
-        NetworkService.shared.getRecentQuestions(page:pagesLoaded + 1, date: date) { (list) in
-            self.pagesLoaded = self.pagesLoaded + 1;
+    func getQuestionsForNextPage() {
+        NetworkService.shared.getRecentQuestions(page: pagesLoaded + 1, date: date) { (list) in
+            self.pagesLoaded += 1
             guard let questionList = list else {
                 return
             }
@@ -148,13 +148,12 @@ extension QuestionListViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == questions.count {
-            guard let loadMoreTableViewCell = tableView.dequeueReusableCell(withIdentifier: QuestionListLoadMoreTableViewCell.identifier, for: indexPath) as? QuestionListLoadMoreTableViewCell else{
+            guard let loadMoreTableViewCell = tableView.dequeueReusableCell(withIdentifier: QuestionListLoadMoreTableViewCell.identifier, for: indexPath) as? QuestionListLoadMoreTableViewCell else {
                 return UITableViewCell()
             }
             return loadMoreTableViewCell
-        }
-        else {
-            guard let questionTableViewCell = tableView.dequeueReusableCell(withIdentifier: QuestionListTableViewCell.identifier, for: indexPath) as? QuestionListTableViewCell else{
+        } else {
+            guard let questionTableViewCell = tableView.dequeueReusableCell(withIdentifier: QuestionListTableViewCell.identifier, for: indexPath) as? QuestionListTableViewCell else {
                 return UITableViewCell()
             }
             questionTableViewCell.question = questions[indexPath.row]
@@ -162,5 +161,3 @@ extension QuestionListViewController: UITableViewDataSource {
         }
     }
 }
-
-

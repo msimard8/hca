@@ -8,15 +8,14 @@
 
 import Foundation
 
-struct StackOverflowAnswerList:Codable {
-    var answers:[StackOverflowAnswer]
+struct StackOverflowAnswerList: Codable {
+    var answers: [StackOverflowAnswer]
     enum CodingKeys: String, CodingKey {
         case answers = "items"
     }
     func answerListWithBestFirst() -> [StackOverflowAnswer] {
-        return answers.sorted(by: { (answer1, answer2) -> Bool in
-            return answer1.isAccepted  
-
+        return answers.sorted(by: { (answer1, _) -> Bool in
+            return answer1.isAccepted
         })
     }
 }

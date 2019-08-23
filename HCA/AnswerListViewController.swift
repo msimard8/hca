@@ -11,21 +11,19 @@ import WebKit
 
 class AnswerListViewController: UIViewController {
     @IBOutlet weak var answersTableView: UITableView?
-    
-    var question : StackOverflowQuestion? {
+
+    var question: StackOverflowQuestion? {
         didSet {
             DispatchQueue.main.async {
 
                 self.answersTableView?.isHidden = true
-                self.answersTableView?.setContentOffset(.zero, animated:false)
+                self.answersTableView?.setContentOffset(.zero, animated: false)
 
                 NetworkService.shared.getAnswers(questionId: self.question?.questionId ?? 0) { (answerList) in
-                    self.answers = answerList.answerListWithBestFirst()
+                    self.answers = answerList?.answerListWithBestFirst() ?? []
                     DispatchQueue.main.async {
                         self.answersTableView?.reloadData()
                         self.answersTableView?.isHidden = false
-
-
                     }
                 }
             }
@@ -35,22 +33,19 @@ class AnswerListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         answersTableView?.estimatedRowHeight = 55
         answersTableView?.rowHeight = UITableView.automaticDimension
         answersTableView?.register(UINib(nibName: "AnswerListQuestionTableViewCell", bundle: nil), forCellReuseIdentifier: AnswerListQuestionTableViewCell.identifier)
         answersTableView?.register(UINib(nibName: "AnswerListAnswerTableViewCell", bundle: nil), forCellReuseIdentifier: AnswerListAnswerTableViewCell.identifier)
         // Do any additional setup after loading the view.
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.title = "Answers"
-        
     }
-    
-    
-    
+
     private func downloadImage(urlString: String, cell: ImageContainingTableViewCell) {
         NetworkService.shared.getImage(urlString: urlString) { (image, error) in
             DispatchQueue.main.async {
@@ -71,24 +66,21 @@ class AnswerListViewController: UIViewController {
     }
 }
 
-
-
-extension AnswerListViewController : UITableViewDataSource {
+extension AnswerListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return answers.count + 1
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+
         if indexPath.row == 0 {
-            guard let answerListQuestionCell = tableView.dequeueReusableCell(withIdentifier: AnswerListQuestionTableViewCell.identifier, for: indexPath) as? AnswerListQuestionTableViewCell else{
+            guard let answerListQuestionCell = tableView.dequeueReusableCell(withIdentifier: AnswerListQuestionTableViewCell.identifier, for: indexPath) as? AnswerListQuestionTableViewCell else {
                 return UITableViewCell()
             }
             answerListQuestionCell.question = question
             return answerListQuestionCell
-        }
-        else {
-            guard let answerListAnswerCell = tableView.dequeueReusableCell(withIdentifier: AnswerListAnswerTableViewCell.identifier, for: indexPath) as? AnswerListAnswerTableViewCell else{
+        } else {
+            guard let answerListAnswerCell = tableView.dequeueReusableCell(withIdentifier: AnswerListAnswerTableViewCell.identifier, for: indexPath) as? AnswerListAnswerTableViewCell else {
                 return UITableViewCell()
             }
             if answers.count > 0 {
@@ -99,13 +91,13 @@ extension AnswerListViewController : UITableViewDataSource {
     }
 }
 
-extension AnswerListViewController : UITableViewDelegate {
+extension AnswerListViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if let imageContainingCell = cell as? ImageContainingTableViewCell {
             imageContainingCell.setImage(image: nil)
             let imageURL = imageContainingCell.imageURL
-            
+
             if let cachedImage = ImageCache.shared.retrieveImage(key: imageURL) {
                 imageContainingCell.setImage(image: cachedImage)
             } else {

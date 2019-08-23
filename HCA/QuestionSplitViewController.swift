@@ -16,7 +16,7 @@ class QuestionSplitViewController: UISplitViewController {
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
 
         answerListNavigationController = UINavigationController(rootViewController: answerListViewController)
-        let _ = answerListViewController.view
+        _ = answerListViewController.view
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
 
         let questionListViewController = QuestionListViewController()
@@ -24,7 +24,6 @@ class QuestionSplitViewController: UISplitViewController {
         let navigationController = UINavigationController(rootViewController: questionListViewController)
         navigationController.navigationBar.barTintColor = UIColor(red: 0, green: 0.4118, blue: 0.8588, alpha: 1.0)
         answerListNavigationController.navigationBar.barTintColor = UIColor(red: 0, green: 0.4118, blue: 0.8588, alpha: 1.0)
-
 
         answerListViewController.navigationItem.rightBarButtonItem = self.displayModeButtonItem
         UIBarButtonItem.appearance().tintColor = UIColor.white
@@ -47,20 +46,7 @@ class QuestionSplitViewController: UISplitViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 }
-
 
 extension QuestionSplitViewController: UISplitViewControllerDelegate {
     func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
@@ -75,10 +61,4 @@ extension QuestionSplitViewController: QuestionListViewControllerDelegate {
      //   answerListViewController.loadView()
         self.showDetailViewController(answerListNavigationController, sender: self)
     }
-
-
-
-
 }
-
-

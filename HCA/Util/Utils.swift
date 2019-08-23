@@ -9,13 +9,10 @@
 import UIKit
 
 class Utils: NSObject {
-
     static func formatDate(date: Date) -> String {
             let displayFormatter = DateFormatter()
             displayFormatter.locale = Locale(identifier: "en_US")
             displayFormatter.dateFormat = "MMM d, YYYY, h:mm a"
             return displayFormatter.string(from: date)
     }
-
-
 }

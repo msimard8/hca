@@ -8,10 +8,10 @@
 
 import Foundation
 
-struct StackOverflowOwner:Codable {
-    var displayName:String
-    var profileImage:String
-    var reputation:Int?
+struct StackOverflowOwner: Codable {
+    var displayName: String
+    var profileImage: String
+    var reputation: Int?
 
     enum CodingKeys: String, CodingKey {
         case displayName = "display_name"

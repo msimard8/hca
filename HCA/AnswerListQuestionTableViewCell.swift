@@ -17,14 +17,11 @@ class AnswerListQuestionTableViewCell: UITableViewCell {
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var dateLabel: UILabel!
 
-    var question:StackOverflowQuestion? {
+    var question: StackOverflowQuestion? {
         didSet {
-
-
             dateLabel.text = Utils.formatDate(date: question?.creationDate ?? Date())
             nameLabel.text = question?.owner.displayName ?? "anonymous"
 
-//
             let font = UIFont.boldSystemFont(ofSize: 24)
 
             let attributes: [NSAttributedString.Key: Any] = [
@@ -36,14 +33,14 @@ class AnswerListQuestionTableViewCell: UITableViewCell {
             attributedString?.addAttributes(attributes, range: NSRange(location: 0, length: (attributedString?.length ?? 0)))
             questionAttributedLabel.attributedText = attributedString
 
-
             let bodyFont = UIFont.systemFont(ofSize: 18)
             let bodyAttributedString = NSMutableAttributedString.init(html: question?.body ?? "")
             bodyAttributedLabel.numberOfLines = 0
-            let colorattribute: [NSAttributedString.Key: Any] = [
-                .foregroundColor: UIColor.white,
 
+            let colorattribute: [NSAttributedString.Key: Any] = [
+                .foregroundColor: UIColor.white
                 ]
+
             bodyAttributedString?.addAttributes(colorattribute, range: NSRange(location: 0, length: (bodyAttributedString?.length ?? 0)))
             bodyAttributedString?.setFontFace(font: bodyFont, color: .white)
             bodyAttributedLabel.attributedText = bodyAttributedString
@@ -60,17 +57,14 @@ class AnswerListQuestionTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
 }
 
-extension AnswerListQuestionTableViewCell : ImageContainingTableViewCell {
+extension AnswerListQuestionTableViewCell: ImageContainingTableViewCell {
     func setImage(image: UIImage?) {
         self.profileImageView.image = image
     }
 
     var imageURL: String {
-        get {
             return question?.owner.profileImage ?? ""
-        }
     }
 }

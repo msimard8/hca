@@ -16,13 +16,15 @@ extension NSAttributedString {
             return nil
         }
 
-        guard let attributedString = try?  NSAttributedString(data: data, options: [.documentType: NSAttributedString.DocumentType.html, .characterEncoding: String.Encoding.utf16.rawValue], documentAttributes: nil) else {
+        guard let attributedString = try? NSAttributedString(data: data,
+                                                options: [.documentType: NSAttributedString.DocumentType.html,
+                                                          .characterEncoding: String.Encoding.utf16.rawValue],
+                                                documentAttributes: nil) else {
             return nil
         }
          self.init(attributedString: attributedString)
     }
 }
-
 
 extension NSMutableAttributedString {
     func setFontFace(font: UIFont, color: UIColor? = nil) {
@@ -30,12 +32,12 @@ extension NSMutableAttributedString {
         self.enumerateAttribute(
             .font,
             in: NSRange(location: 0, length: self.length)
-        ) { (value, range, stop) in
+        ) { (value, range, _) in
 
-            if let f = value as? UIFont,
-                let newFontDescriptor = f.fontDescriptor
+            if let attrFont = value as? UIFont,
+                let newFontDescriptor = attrFont.fontDescriptor
                     .withFamily(font.familyName)
-                    .withSymbolicTraits(f.fontDescriptor.symbolicTraits) {
+                    .withSymbolicTraits(attrFont.fontDescriptor.symbolicTraits) {
 
                 let newFont = UIFont(
                     descriptor: newFontDescriptor,
