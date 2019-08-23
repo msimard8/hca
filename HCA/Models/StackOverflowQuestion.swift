@@ -15,6 +15,7 @@ struct StackOverflowQuestion:Codable {
     var questionId:Int
     var title:String
     var creationDate:Date
+    var body:String
     var owner:StackOverflowOwner
     enum CodingKeys: String, CodingKey {
         case acceptedAnswerId = "accepted_answer_id"
@@ -23,6 +24,7 @@ struct StackOverflowQuestion:Codable {
         case title = "title"
         case creationDate = "creation_date"
         case owner = "owner"
+        case body = "body"
     }
 }
 
