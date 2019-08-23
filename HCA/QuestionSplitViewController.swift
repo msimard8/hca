@@ -26,13 +26,10 @@ class QuestionSplitViewController: UISplitViewController {
         navigationController.navigationBar.barTintColor = UIColor(red: 0, green: 0.4118, blue: 0.8588, alpha: 1.0)
         answerListNavigationController.navigationBar.barTintColor = UIColor(red: 0, green: 0.4118, blue: 0.8588, alpha: 1.0)
 
-        
-
         UIBarButtonItem.appearance().tintColor = UIColor.white
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        let placeHolderVc = UIViewController()
-        placeHolderVc.view.backgroundColor = .white
-        self.viewControllers = [navigationController, placeHolderVc ]
+        let placeHolderVc = PlaceHolderDetailViewController()
+         self.viewControllers = [navigationController, placeHolderVc ]
 
         self.preferredPrimaryColumnWidthFraction = 0.45
         self.maximumPrimaryColumnWidth = self.view.bounds.size.width/2.0
