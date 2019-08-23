@@ -21,7 +21,7 @@ class AnswerListViewController: UIViewController {
                 self.answersTableView?.reloadData()
 
                 NetworkService.shared.getAnswers(questionId: self.question?.questionId ?? 0) { (answerList) in
-                    self.answers = answerList.answers
+                    self.answers = answerList.answerListWithBestFirst()
                     DispatchQueue.main.async {
                         self.answersTableView?.reloadData()
                     }
@@ -59,7 +59,7 @@ class AnswerListViewController: UIViewController {
                     return
                 }
                 ImageCache.shared.storeImage(key: urlString, image: img)
-                if cell.imageURL ?? "" == urlString {
+                if cell.imageURL == urlString {
                 if error == nil {
                     cell.setImage(image: image)
                 } else {
@@ -93,7 +93,6 @@ extension AnswerListViewController : UITableViewDataSource {
                 return UITableViewCell()
             }
             answerListAnswerCell.answer = answers[indexPath.row - 1]
-            print("dl item at")
 
             return answerListAnswerCell
         }
@@ -104,8 +103,6 @@ extension AnswerListViewController : UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if let imageContainingCell = cell as? ImageContainingTableViewCell {
-            print("dl will display at")
-
             imageContainingCell.setImage(image: nil)
             let imageURL = imageContainingCell.imageURL
             
