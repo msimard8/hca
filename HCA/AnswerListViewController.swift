@@ -10,7 +10,6 @@ import UIKit
 import WebKit
 
 class AnswerListViewController: UIViewController {
-    
     @IBOutlet weak var answersTableView: UITableView?
     
     var question : StackOverflowQuestion? {
@@ -55,7 +54,6 @@ class AnswerListViewController: UIViewController {
     private func downloadImage(urlString: String, cell: ImageContainingTableViewCell) {
         NetworkService.shared.getImage(urlString: urlString) { (image, error) in
             DispatchQueue.main.async {
-                print("dl complete")
                 guard let img = image else {
                     return
                 }
