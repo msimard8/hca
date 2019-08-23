@@ -70,7 +70,7 @@
                                 <attributedString key="attributedText">
                                     <fragment content="Label">
                                         <attributes>
-                                            <font key="NSFont" size="14" name=".SFNS-Regular"/>
+                                            <font key="NSFont" size="14" name="SFMono-Regular"/>
                                         </attributes>
                                     </fragment>
                                 </attributedString>
