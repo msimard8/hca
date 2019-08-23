@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A6E4A13230F72FF006E2DE6 /* QuestionListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6E4A11230F72FF006E2DE6 /* QuestionListTableViewCell.swift */; };
+		8A6E4A14230F72FF006E2DE6 /* QuestionListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A6E4A12230F72FF006E2DE6 /* QuestionListTableViewCell.xib */; };
 		8AB80339230F144A00AD2700 /* StackOverflowOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB80338230F144A00AD2700 /* StackOverflowOwner.swift */; };
 		8AB8033B230F1C0B00AD2700 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB8033A230F1C0B00AD2700 /* ImageCache.swift */; };
 		8ABF5D0E230C63F4001A1546 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABF5D0D230C63F4001A1546 /* AppDelegate.swift */; };
-		8ABF5D10230C63F4001A1546 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABF5D0F230C63F4001A1546 /* ViewController.swift */; };
-		8ABF5D13230C63F4001A1546 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8ABF5D11230C63F4001A1546 /* Main.storyboard */; };
 		8ABF5D16230C63F4001A1546 /* HCA.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8ABF5D14230C63F4001A1546 /* HCA.xcdatamodeld */; };
 		8ABF5D18230C63F5001A1546 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8ABF5D17230C63F5001A1546 /* Assets.xcassets */; };
 		8ABF5D1B230C63F5001A1546 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8ABF5D19230C63F5001A1546 /* LaunchScreen.storyboard */; };
@@ -24,8 +24,6 @@
 		8ABF5D3F230CDDD6001A1546 /* QuestionListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8ABF5D3D230CDDD6001A1546 /* QuestionListViewController.xib */; };
 		8ABF5D42230CDE00001A1546 /* AnswerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABF5D40230CDE00001A1546 /* AnswerListViewController.swift */; };
 		8ABF5D43230CDE00001A1546 /* AnswerListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8ABF5D41230CDE00001A1546 /* AnswerListViewController.xib */; };
-		8ABF5D46230CE866001A1546 /* QuestionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABF5D44230CE866001A1546 /* QuestionTableViewCell.swift */; };
-		8ABF5D47230CE866001A1546 /* QuestionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8ABF5D45230CE866001A1546 /* QuestionTableViewCell.xib */; };
 		8ABF5D4A230CEF03001A1546 /* QuestionListLoadMoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABF5D48230CEF03001A1546 /* QuestionListLoadMoreTableViewCell.swift */; };
 		8ABF5D4B230CEF03001A1546 /* QuestionListLoadMoreTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8ABF5D49230CEF03001A1546 /* QuestionListLoadMoreTableViewCell.xib */; };
 		8ABF5D4E230DD6F9001A1546 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABF5D4D230DD6F9001A1546 /* Utils.swift */; };
@@ -39,6 +37,8 @@
 		8ABF5D61230E0D05001A1546 /* AnswerListAnswerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABF5D5F230E0D05001A1546 /* AnswerListAnswerTableViewCell.swift */; };
 		8ABF5D62230E0D05001A1546 /* AnswerListAnswerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8ABF5D60230E0D05001A1546 /* AnswerListAnswerTableViewCell.xib */; };
 		8ABF5D65230EDA98001A1546 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8ABF5D64230EDA98001A1546 /* Media.xcassets */; };
+		8AC83464230F4B40004BD8B4 /* PlaceHolderDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC83462230F4B40004BD8B4 /* PlaceHolderDetailViewController.swift */; };
+		8AC83465230F4B40004BD8B4 /* PlaceHolderDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8AC83463230F4B40004BD8B4 /* PlaceHolderDetailViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,12 +52,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8A6E4A11230F72FF006E2DE6 /* QuestionListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionListTableViewCell.swift; sourceTree = "<group>"; };
+		8A6E4A12230F72FF006E2DE6 /* QuestionListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestionListTableViewCell.xib; sourceTree = "<group>"; };
 		8AB80338230F144A00AD2700 /* StackOverflowOwner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackOverflowOwner.swift; sourceTree = "<group>"; };
 		8AB8033A230F1C0B00AD2700 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		8ABF5D0A230C63F4001A1546 /* HCA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HCA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8ABF5D0D230C63F4001A1546 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8ABF5D0F230C63F4001A1546 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		8ABF5D12230C63F4001A1546 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8ABF5D15230C63F4001A1546 /* HCA.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HCA.xcdatamodel; sourceTree = "<group>"; };
 		8ABF5D17230C63F5001A1546 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8ABF5D1A230C63F5001A1546 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -73,8 +73,6 @@
 		8ABF5D3D230CDDD6001A1546 /* QuestionListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestionListViewController.xib; sourceTree = "<group>"; };
 		8ABF5D40230CDE00001A1546 /* AnswerListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerListViewController.swift; sourceTree = "<group>"; };
 		8ABF5D41230CDE00001A1546 /* AnswerListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnswerListViewController.xib; sourceTree = "<group>"; };
-		8ABF5D44230CE866001A1546 /* QuestionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionTableViewCell.swift; sourceTree = "<group>"; };
-		8ABF5D45230CE866001A1546 /* QuestionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestionTableViewCell.xib; sourceTree = "<group>"; };
 		8ABF5D48230CEF03001A1546 /* QuestionListLoadMoreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionListLoadMoreTableViewCell.swift; sourceTree = "<group>"; };
 		8ABF5D49230CEF03001A1546 /* QuestionListLoadMoreTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestionListLoadMoreTableViewCell.xib; sourceTree = "<group>"; };
 		8ABF5D4D230DD6F9001A1546 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -88,6 +86,8 @@
 		8ABF5D5F230E0D05001A1546 /* AnswerListAnswerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerListAnswerTableViewCell.swift; sourceTree = "<group>"; };
 		8ABF5D60230E0D05001A1546 /* AnswerListAnswerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnswerListAnswerTableViewCell.xib; sourceTree = "<group>"; };
 		8ABF5D64230EDA98001A1546 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		8AC83462230F4B40004BD8B4 /* PlaceHolderDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceHolderDetailViewController.swift; sourceTree = "<group>"; };
+		8AC83463230F4B40004BD8B4 /* PlaceHolderDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceHolderDetailViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,12 +137,13 @@
 				8ABF5D31230C7AE5001A1546 /* Network */,
 				8ABF5D30230C66CA001A1546 /* Models */,
 				8ABF5D0D230C63F4001A1546 /* AppDelegate.swift */,
-				8ABF5D0F230C63F4001A1546 /* ViewController.swift */,
+				8AC83462230F4B40004BD8B4 /* PlaceHolderDetailViewController.swift */,
+				8AC83463230F4B40004BD8B4 /* PlaceHolderDetailViewController.xib */,
 				8ABF5D3A230CDD77001A1546 /* QuestionSplitViewController.swift */,
 				8ABF5D3C230CDDD6001A1546 /* QuestionListViewController.swift */,
 				8ABF5D3D230CDDD6001A1546 /* QuestionListViewController.xib */,
-				8ABF5D44230CE866001A1546 /* QuestionTableViewCell.swift */,
-				8ABF5D45230CE866001A1546 /* QuestionTableViewCell.xib */,
+				8A6E4A11230F72FF006E2DE6 /* QuestionListTableViewCell.swift */,
+				8A6E4A12230F72FF006E2DE6 /* QuestionListTableViewCell.xib */,
 				8ABF5D48230CEF03001A1546 /* QuestionListLoadMoreTableViewCell.swift */,
 				8ABF5D49230CEF03001A1546 /* QuestionListLoadMoreTableViewCell.xib */,
 				8ABF5D40230CDE00001A1546 /* AnswerListViewController.swift */,
@@ -151,7 +152,6 @@
 				8ABF5D5C230E0CC1001A1546 /* AnswerListQuestionTableViewCell.xib */,
 				8ABF5D5F230E0D05001A1546 /* AnswerListAnswerTableViewCell.swift */,
 				8ABF5D60230E0D05001A1546 /* AnswerListAnswerTableViewCell.xib */,
-				8ABF5D11230C63F4001A1546 /* Main.storyboard */,
 				8ABF5D17230C63F5001A1546 /* Assets.xcassets */,
 				8ABF5D19230C63F5001A1546 /* LaunchScreen.storyboard */,
 				8ABF5D1C230C63F5001A1546 /* Info.plist */,
@@ -305,15 +305,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				8ABF5D65230EDA98001A1546 /* Media.xcassets in Resources */,
+				8AC83465230F4B40004BD8B4 /* PlaceHolderDetailViewController.xib in Resources */,
 				8ABF5D1B230C63F5001A1546 /* LaunchScreen.storyboard in Resources */,
 				8ABF5D18230C63F5001A1546 /* Assets.xcassets in Resources */,
 				8ABF5D4B230CEF03001A1546 /* QuestionListLoadMoreTableViewCell.xib in Resources */,
 				8ABF5D5E230E0CC1001A1546 /* AnswerListQuestionTableViewCell.xib in Resources */,
 				8ABF5D3F230CDDD6001A1546 /* QuestionListViewController.xib in Resources */,
 				8ABF5D62230E0D05001A1546 /* AnswerListAnswerTableViewCell.xib in Resources */,
-				8ABF5D47230CE866001A1546 /* QuestionTableViewCell.xib in Resources */,
+				8A6E4A14230F72FF006E2DE6 /* QuestionListTableViewCell.xib in Resources */,
 				8ABF5D43230CDE00001A1546 /* AnswerListViewController.xib in Resources */,
-				8ABF5D13230C63F4001A1546 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,12 +331,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8ABF5D10230C63F4001A1546 /* ViewController.swift in Sources */,
-				8ABF5D46230CE866001A1546 /* QuestionTableViewCell.swift in Sources */,
 				8ABF5D0E230C63F4001A1546 /* AppDelegate.swift in Sources */,
 				8ABF5D50230DF4B9001A1546 /* StackOverflowAnswer.swift in Sources */,
 				8ABF5D39230CD48E001A1546 /* StackOverflowQuestionList.swift in Sources */,
 				8ABF5D3B230CDD77001A1546 /* QuestionSplitViewController.swift in Sources */,
+				8A6E4A13230F72FF006E2DE6 /* QuestionListTableViewCell.swift in Sources */,
 				8AB80339230F144A00AD2700 /* StackOverflowOwner.swift in Sources */,
 				8ABF5D5A230E0BB3001A1546 /* UIView+Extensions.swift in Sources */,
 				8ABF5D3E230CDDD6001A1546 /* QuestionListViewController.swift in Sources */,
@@ -345,6 +344,7 @@
 				8ABF5D33230CB39A001A1546 /* NetworkService.swift in Sources */,
 				8ABF5D42230CDE00001A1546 /* AnswerListViewController.swift in Sources */,
 				8ABF5D37230CB55A001A1546 /* StackOverflowQuestion.swift in Sources */,
+				8AC83464230F4B40004BD8B4 /* PlaceHolderDetailViewController.swift in Sources */,
 				8ABF5D16230C63F4001A1546 /* HCA.xcdatamodeld in Sources */,
 				8ABF5D52230DF4D2001A1546 /* StackOverflowAnswerList.swift in Sources */,
 				8ABF5D58230E0B96001A1546 /* NSAttributedString+Extensions.swift in Sources */,
@@ -373,14 +373,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		8ABF5D11230C63F4001A1546 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8ABF5D12230C63F4001A1546 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		8ABF5D19230C63F5001A1546 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
