@@ -22,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window!.rootViewController = QuestionSplitViewController()
         window!.makeKeyAndVisible()
+        ImageCache.shared.setImageCap(cap: 400)
         return true
     }
 
