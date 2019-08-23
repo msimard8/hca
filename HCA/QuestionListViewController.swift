@@ -16,6 +16,7 @@ class QuestionListViewController: UIViewController {
 
     weak var delegate: QuestionListViewControllerDelegate?
 
+    @IBOutlet weak var loadingActivityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var questionsTableView: UITableView!
     var questions = [StackOverflowQuestion]()
     var date = Date()
@@ -43,6 +44,7 @@ class QuestionListViewController: UIViewController {
 
     @objc func refreshData() {
         date = Date()
+        self.loadingActivityIndicator.isHidden = false
         NetworkService.shared.getRecentQuestions(page: 1, date: Date()) { (list) in
             guard let questionList = list else {
                 return
@@ -50,6 +52,7 @@ class QuestionListViewController: UIViewController {
             self.pagesLoaded = 1
             self.questions = questionList.questions
             DispatchQueue.main.async {
+                self.loadingActivityIndicator.isHidden = true
                 self.questionsTableView.refreshControl?.endRefreshing()
                 self.questionsTableView.reloadData()
             }
