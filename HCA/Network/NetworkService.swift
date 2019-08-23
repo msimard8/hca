@@ -98,8 +98,6 @@ class NetworkService: NSObject {
                     response.statusCode == 200 {
                     let questions = try? self?.decoder.decode(StackOverflowQuestionList.self, from: data)
                     completion(questions)
-                    print (questions!.quotaRemaining)
-
                 }
                 else {
                     //assume error
