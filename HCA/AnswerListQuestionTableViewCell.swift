@@ -12,10 +12,8 @@ class AnswerListQuestionTableViewCell: UITableViewCell {
     static let identifier = "AnswerListQuestionTableViewCell"
 
     @IBOutlet weak var questionAttributedLabel: UILabel!
-
     @IBOutlet weak var bodyAttributedLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
-
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var dateLabel: UILabel!
 
@@ -26,7 +24,7 @@ class AnswerListQuestionTableViewCell: UITableViewCell {
             dateLabel.text = Utils.formatDate(date: question?.creationDate ?? Date())
             nameLabel.text = question?.owner.displayName ?? "anonymous"
 
-
+//
             let font = UIFont.boldSystemFont(ofSize: 24)
 
             let attributes: [NSAttributedString.Key: Any] = [
@@ -40,15 +38,14 @@ class AnswerListQuestionTableViewCell: UITableViewCell {
 
 
             let bodyFont = UIFont.systemFont(ofSize: 18)
-
-            let bodyAttributes: [NSAttributedString.Key: Any] = [
-                .foregroundColor: UIColor.white,
-                .font: bodyFont
-            ]
-
             let bodyAttributedString = NSMutableAttributedString.init(html: question?.body ?? "")
             bodyAttributedLabel.numberOfLines = 0
-            bodyAttributedString?.addAttributes(bodyAttributes, range: NSRange(location: 0, length: (bodyAttributedString?.length ?? 0)))
+            let colorattribute: [NSAttributedString.Key: Any] = [
+                .foregroundColor: UIColor.white,
+
+                ]
+            bodyAttributedString?.addAttributes(colorattribute, range: NSRange(location: 0, length: (bodyAttributedString?.length ?? 0)))
+            bodyAttributedString?.setFontFace(font: bodyFont, color: .white)
             bodyAttributedLabel.attributedText = bodyAttributedString
         }
     }
