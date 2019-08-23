@@ -19,13 +19,13 @@
                 <rect key="frame" x="0.0" y="0.0" width="357" height="320.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tur-lB-OJO">
+                    <view contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Tur-lB-OJO">
                         <rect key="frame" x="15" y="15" width="327" height="290.5"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ho9-ti-u6C">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ho9-ti-u6C" userLabel="TopView">
                                 <rect key="frame" x="0.0" y="0.0" width="327" height="60"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rx" translatesAutoresizingMaskIntoConstraints="NO" id="hKg-tB-NbP">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-blue" translatesAutoresizingMaskIntoConstraints="NO" id="hKg-tB-NbP">
                                         <rect key="frame" x="15" y="5" width="50" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="LUm-zM-sg2"/>
@@ -76,7 +76,7 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" verticalHuggingPriority="253" translatesAutoresizingMaskIntoConstraints="NO" id="0bP-qr-d8t">
+                            <view contentMode="scaleToFill" verticalHuggingPriority="253" translatesAutoresizingMaskIntoConstraints="NO" id="0bP-qr-d8t" userLabel="BottomView">
                                 <rect key="frame" x="0.0" y="234.5" width="327" height="56"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Doctor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ygg-DD-ufs">
@@ -197,6 +197,6 @@
     </objects>
     <resources>
         <image name="checkmark" width="48" height="48"/>
-        <image name="rx" width="564" height="600"/>
+        <image name="logo-blue" width="795" height="804"/>
     </resources>
 </document>
