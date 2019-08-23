@@ -13,4 +13,10 @@ struct StackOverflowAnswerList:Codable {
     enum CodingKeys: String, CodingKey {
         case answers = "items"
     }
+    func answerListWithBestFirst() -> [StackOverflowAnswer] {
+        return answers.sorted(by: { (answer1, answer2) -> Bool in
+            return answer1.isAccepted  
+
+        })
+    }
 }
