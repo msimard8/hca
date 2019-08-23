@@ -16,11 +16,10 @@ extension NSAttributedString {
             return nil
         }
 
-        guard let attributedString = try?  NSAttributedString(data: data, options: [.documentType: NSAttributedString.DocumentType.html, .characterEncoding: String.Encoding.utf8.rawValue], documentAttributes: nil) else {
+        guard let attributedString = try?  NSAttributedString(data: data, options: [.documentType: NSAttributedString.DocumentType.html, .characterEncoding: String.Encoding.utf16.rawValue], documentAttributes: nil) else {
             return nil
         }
-
-        self.init(attributedString: attributedString)
+         self.init(attributedString: attributedString)
     }
 }
 
@@ -42,6 +41,7 @@ extension NSMutableAttributedString {
                     descriptor: newFontDescriptor,
                     size: font.pointSize
                 )
+
                 removeAttribute(.font, range: range)
                 addAttribute(.font, value: newFont, range: range)
                 if let color = color {
