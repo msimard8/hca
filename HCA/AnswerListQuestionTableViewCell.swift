@@ -21,32 +21,16 @@ class AnswerListQuestionTableViewCell: UITableViewCell {
         didSet {
             dateLabel.text = Utils.formatDate(date: question?.creationDate ?? Date())
             nameLabel.text = question?.owner.displayName ?? "anonymous"
-
-            let font = UIFont.boldSystemFont(ofSize: 24)
-
-            let attributes: [NSAttributedString.Key: Any] = [
-                .foregroundColor: UIColor.white,
-                .font: font
-            ]
-            let attributedString = NSMutableAttributedString.init(html: question?.title ?? "")
             questionAttributedLabel.numberOfLines = 0
-            attributedString?.addAttributes(attributes,
-                                            range: NSRange(location: 0, length: (attributedString?.length ?? 0)))
-            questionAttributedLabel.attributedText = attributedString
-
-            let bodyFont = UIFont.systemFont(ofSize: 18)
-            let bodyAttributedString = NSMutableAttributedString.init(html: question?.body ?? "")
             bodyAttributedLabel.numberOfLines = 0
 
-            let colorattribute: [NSAttributedString.Key: Any] = [
-                .foregroundColor: UIColor.white
-                ]
+            questionAttributedLabel.attributedText = Utils.makeAttributedString(html: question?.title ?? "",
+                                                                          font: UIFont.boldSystemFont(ofSize: 24),
+                                                                          color: .white)
 
-            bodyAttributedString?.addAttributes(colorattribute,
-                                                range: NSRange(location: 0,
-                                                               length: (bodyAttributedString?.length ?? 0)))
-            bodyAttributedString?.setFontFace(font: bodyFont, color: .white)
-            bodyAttributedLabel.attributedText = bodyAttributedString
+            bodyAttributedLabel.attributedText =  Utils.makeAttributedString(html: question?.body ?? "",
+                                                                        font: UIFont.systemFont(ofSize: 18),
+                                                                        color: .white)
         }
     }
 

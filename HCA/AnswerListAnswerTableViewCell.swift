@@ -15,6 +15,8 @@ protocol ImageContainingTableViewCell {
 
 class AnswerListAnswerTableViewCell: UITableViewCell {
 
+    static let identifier = "AnswerListAnswerTableViewCell"
+
     @IBOutlet weak var answerAttributedLabel: UILabel!
     @IBOutlet weak var cardBackgroundView: UIView!
     @IBOutlet weak var dateLabel: UILabel!
@@ -25,11 +27,11 @@ class AnswerListAnswerTableViewCell: UITableViewCell {
 
     var answer: StackOverflowAnswer? {
         didSet {
-            let font = UIFont.systemFont(ofSize: 18)
-            let attributedString = NSMutableAttributedString.init(html: answer?.body ?? "")
-            answerAttributedLabel.numberOfLines = 0
-            attributedString?.setFontFace(font: font, color: .black)
-            answerAttributedLabel.attributedText = attributedString
+
+            answerAttributedLabel.attributedText = Utils.makeAttributedString(html: answer?.body ?? "",
+                                       font: UIFont.systemFont(ofSize: 18),
+                                       color: .black)
+
             dateLabel.text = Utils.formatDate(date: answer?.creationDate ?? Date())
             scoreLabel.text = "\(answer?.score ?? 0)"
             nameLabel.text = "\(answer?.owner.displayName ?? "anonymous") (\(answer?.owner.reputation ?? 0))"
@@ -44,7 +46,7 @@ class AnswerListAnswerTableViewCell: UITableViewCell {
             }
         }
     }
-    static let identifier = "AnswerListAnswerTableViewCell"
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

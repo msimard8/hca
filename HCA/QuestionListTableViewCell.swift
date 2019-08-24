@@ -25,17 +25,10 @@ class QuestionListTableViewCell: UITableViewCell {
                 self.numberOfAnswerLabel.text = "\(self.question?.answerCount ?? 0)"
                 self.profileImageView.image = nil
                 self.patientNameLabel.text = self.question?.owner.displayName ?? "anonymous"
-                let font = UIFont.systemFont(ofSize: 18, weight: .bold)
-                let attributes: [NSAttributedString.Key: Any] = [
-                    .foregroundColor: UIColor.black,
-                    .font: font
-                ]
-                let attributedString = NSMutableAttributedString.init(html: self.question?.title ?? "")
+                self.questionTitleLabel.attributedText =  Utils.makeAttributedString(html: self.question?.title ?? "",
+                                           font: UIFont.boldSystemFont(ofSize: 18),
+                                           color: .black)
                 self.questionTitleLabel.numberOfLines = 0
-                attributedString?.addAttributes(attributes,
-                                                range: NSRange(location: 0,
-                                                               length: (attributedString?.length ?? 0)))
-                self.questionTitleLabel.attributedText = attributedString
             }
         }
     }
