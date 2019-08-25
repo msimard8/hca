@@ -48,7 +48,7 @@ class QuestionListViewController: UIViewController {
         NetworkService.shared.getRecentQuestions(page: 1, date: Date()) { (list, error) in
             if let error = error {
                 print (error)
-            } git selse {
+            } else {
                 guard let questionList = list else {
                     return
                 }

@@ -25,7 +25,7 @@ class NetworkService: NSObject {
     }()
 
     private func performDataTask(urlComponents: URLComponents,
-                                 completion:  @escaping((_ data: Data, _ error: Error?) -> Void)) {
+                                 completion:  @escaping((_ data: Data?, _ error: Error?) -> Void)) {
         dataTask?.cancel()
 
         guard let url = urlComponents.url else {
@@ -45,7 +45,7 @@ class NetworkService: NSObject {
                 response.statusCode == 200 {
                 completion(data, error)
             } else {
-                //assume error
+                completion(nil, error)
             }
         }
         self.dataTask?.resume()
@@ -62,6 +62,10 @@ class NetworkService: NSObject {
                 + "&key=\(key)"
 
             performDataTask(urlComponents: urlComponents) { (data, error) in
+                guard let data = data else {
+                    completion(nil, error)
+                    return
+                }
                 if let error = error {
                     completion(nil, error)
                 } else {
@@ -93,6 +97,10 @@ class NetworkService: NSObject {
                 + "&key=\(key)"
 
             performDataTask(urlComponents: urlComponents) { (data, error) in
+                guard let data = data else {
+                    completion(nil, error)
+                    return
+                }
                 if let error = error {
                     completion(nil, error)
                 } else {
