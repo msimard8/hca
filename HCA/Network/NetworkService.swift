@@ -12,92 +12,100 @@ class NetworkService: NSObject {
     let baseURL = "https://api.stackexchange.com/2.2"
     let key: String = "wV5REhLr1WpnH1aejgbZHw(("
     let pageSize = 20
+
     let session = URLSession(configuration: .default)
     var dataTask: URLSessionDataTask?
     var decoder = JSONDecoder()
 
     internal static var shared: NetworkService = {
         let instance = NetworkService()
+        instance.decoder.dateDecodingStrategy = .secondsSince1970
+
         return instance
     }()
 
-    func getAnswers (questionId: Int, completion: @escaping((_ answerList: StackOverflowAnswerList?) -> Void)) {
-
-        decoder.dateDecodingStrategy = .secondsSince1970
-
+    private func performDataTask(urlComponents: URLComponents,
+                                 completion:  @escaping((_ data: Data, _ error: Error?) -> Void)) {
         dataTask?.cancel()
+
+        guard let url = urlComponents.url else {
+            return
+        }
+
+        dataTask = session.dataTask(with: url) {[weak self] (data, response, error) in
+            defer {
+                self?.dataTask = nil
+            }
+
+            if let error = error {
+                print ("Error \(error.localizedDescription)")
+            } else if
+                let data = data,
+                let response = response as? HTTPURLResponse,
+                response.statusCode == 200 {
+                completion(data, error)
+            } else {
+                //assume error
+            }
+        }
+        self.dataTask?.resume()
+    }
+
+    func getAnswers (questionId: Int,
+                     completion: @escaping((_ answerList: StackOverflowAnswerList?, _ error: Error?) -> Void)) {
 
         if var urlComponents = URLComponents (string: "\(baseURL)/questions/\(questionId)/answers") {
             urlComponents.query = "order=desc"
-            + "&sort=votes"
-            + "&site=stackoverflow"
-            + "&filter=!)Q2AgQTb-X*Za_BUKPaSUeie"
-            + "&key=\(key)"
+                + "&sort=votes"
+                + "&site=stackoverflow"
+                + "&filter=!)Q2AgQTb-X*Za_BUKPaSUeie"
+                + "&key=\(key)"
 
-            guard let url = urlComponents.url else {
-                return
-            }
-
-            dataTask = session.dataTask(with: url) {[weak self] (data, response, error) in
-                defer {
-                    self?.dataTask = nil
-                }
-
+            performDataTask(urlComponents: urlComponents) { (data, error) in
                 if let error = error {
-                    print ("Error \(error.localizedDescription)")
-                } else if
-                    let data = data,
-                    let response = response as? HTTPURLResponse,
-                    response.statusCode == 200 {
-                    let answers = try? self?.decoder.decode(StackOverflowAnswerList.self, from: data)
-                    completion(answers)
+                    completion(nil, error)
                 } else {
-                    //assume error
+                    do {
+                        let answers = try self.decoder.decode(StackOverflowAnswerList.self, from: data)
+                        completion(answers, nil)
+                    } catch let jsonDecodeError {
+                        completion(nil, jsonDecodeError)
+
+                    }
                 }
             }
-            dataTask?.resume()
         }
     }
 
     func getRecentQuestions(page: Int = 1,
                             date: Date = Date.init(timeIntervalSinceNow: 0),
-                            completion: @escaping((_ questionList: StackOverflowQuestionList?) -> Void)) {
+                            completion: @escaping((_ questionList: StackOverflowQuestionList?,
+                                                  _ error: Error?) -> Void)) {
 
-        decoder.dateDecodingStrategy = .secondsSince1970
-
-        dataTask?.cancel()
-
-         if var urlComponents = URLComponents (string: "\(baseURL)/search/advanced") {
+        if var urlComponents = URLComponents (string: "\(baseURL)/search/advanced") {
             urlComponents.query = "page=\(page)&pagesize=\(pageSize)"
-            + "&todate=\(Int(date.timeIntervalSince1970))"
-            + "&order=desc&sort=creation"
-            + "&accepted=True&answers=2"
-            + "&site=stackoverflow"
-            + "&filter=!.FjtmoGIogKGfL93TUUw1f7UHRoCT"
-            + "&key=\(key)"
+                + "&todate=\(Int(date.timeIntervalSince1970))"
+                + "&order=desc&sort=creation"
+                + "&accepted=True"
+                + "&answers=2"
+                + "&site=stackoverflow"
+                + "&filter=!.FjtmoGIogKGfL93TUUw1f7UHRoCT"
+                + "&key=\(key)"
 
-            guard let url = urlComponents.url else {
-                return
-            }
-
-            dataTask = session.dataTask(with: url) {[weak self] (data, response, error) in
-                defer {
-                    self?.dataTask = nil
-                }
-
+            performDataTask(urlComponents: urlComponents) { (data, error) in
                 if let error = error {
-                    print ("Error \(error.localizedDescription)")
-                } else if
-                    let data = data,
-                    let response = response as? HTTPURLResponse,
-                    response.statusCode == 200 {
-                    let questions = try? self?.decoder.decode(StackOverflowQuestionList.self, from: data)
-                    completion(questions)
+                    completion(nil, error)
                 } else {
-                    //assume error
+                    do {
+                        let questions = try self.decoder.decode(StackOverflowQuestionList.self, from: data)
+                        completion(questions, nil)
+                    } catch let jsonDecodeError {
+                        completion(nil, jsonDecodeError)
+
+                    }
                 }
             }
-            dataTask?.resume()
+
         }
     }
 
@@ -109,16 +117,24 @@ class NetworkService: NSObject {
         }
 
         let task = session.dataTask(with: imageURL) { (imageData, _, error) in
+            if let dataTaskError = error {
+                completion (nil, dataTaskError)
+            }
             guard let data = imageData else {
-                completion(nil, error)
+                completion(nil, ImageDownloadError.noData)
                 return
             }
             guard let image = UIImage(data: data) else {
-                completion(nil, error)
+                completion(nil, ImageDownloadError.badData)
                 return
             }
             completion(image, nil)
         }
         task.resume()
     }
+}
+
+enum ImageDownloadError: Error {
+    case noData
+    case badData
 }

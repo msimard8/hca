@@ -20,12 +20,16 @@ class AnswerListViewController: UIViewController {
                 self.answersTableView?.isHidden = true
                 self.answersTableView?.setContentOffset(.zero, animated: false)
                 self.loadingActivityIndicator.isHidden = false
-                NetworkService.shared.getAnswers(questionId: self.question?.questionId ?? 0) { (answerList) in
-                    self.answers = answerList?.answerListWithBestFirst() ?? []
-                    DispatchQueue.main.async {
-                        self.loadingActivityIndicator.isHidden = true
-                        self.answersTableView?.reloadData()
-                        self.answersTableView?.isHidden = false
+                NetworkService.shared.getAnswers(questionId: self.question?.questionId ?? 0) { (answerList, error) in
+                    if let error = error {
+                        print (error)
+                    } else {
+                        self.answers = answerList?.answerListWithBestFirst() ?? []
+                        DispatchQueue.main.async {
+                            self.loadingActivityIndicator.isHidden = true
+                            self.answersTableView?.reloadData()
+                            self.answersTableView?.isHidden = false
+                        }
                     }
                 }
             }
@@ -58,12 +62,12 @@ class AnswerListViewController: UIViewController {
                 }
                 ImageCache.shared.storeImage(key: urlString, image: img)
                 if cell.imageURL == urlString {
-                if error == nil {
-                    cell.setImage(image: image)
-                } else {
-                    cell.setImage(image: nil)
+                    if error == nil {
+                        cell.setImage(image: image)
+                    } else {
+                        cell.setImage(image: nil)
+                    }
                 }
-            }
             }
 
         }
@@ -81,7 +85,7 @@ extension AnswerListViewController: UITableViewDataSource {
             guard let answerListQuestionCell = tableView.dequeueReusableCell(
                 withIdentifier: AnswerListQuestionTableViewCell.identifier,
                 for: indexPath) as? AnswerListQuestionTableViewCell else {
-                return UITableViewCell()
+                    return UITableViewCell()
             }
             answerListQuestionCell.question = question
             return answerListQuestionCell
@@ -89,7 +93,7 @@ extension AnswerListViewController: UITableViewDataSource {
             guard let answerListAnswerCell = tableView.dequeueReusableCell(
                 withIdentifier: AnswerListAnswerTableViewCell.identifier,
                 for: indexPath) as? AnswerListAnswerTableViewCell else {
-                return UITableViewCell()
+                    return UITableViewCell()
             }
             if answers.count > 0 {
                 answerListAnswerCell.answer = answers[indexPath.row - 1]

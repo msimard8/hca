@@ -45,49 +45,58 @@ class QuestionListViewController: UIViewController {
     @objc func refreshData() {
         date = Date()
         self.loadingActivityIndicator.isHidden = false
-        NetworkService.shared.getRecentQuestions(page: 1, date: Date()) { (list) in
-            guard let questionList = list else {
-                return
-            }
-            self.pagesLoaded = 1
-            self.questions = questionList.questions
-            DispatchQueue.main.async {
-                self.loadingActivityIndicator.isHidden = true
-                self.questionsTableView.refreshControl?.endRefreshing()
-                self.questionsTableView.reloadData()
+        NetworkService.shared.getRecentQuestions(page: 1, date: Date()) { (list, error) in
+            if let error = error {
+                print (error)
+            } git selse {
+                guard let questionList = list else {
+                    return
+                }
+                self.pagesLoaded = 1
+                self.questions = questionList.questions
+                DispatchQueue.main.async {
+                    self.loadingActivityIndicator.isHidden = true
+                    self.questionsTableView.refreshControl?.endRefreshing()
+                    self.questionsTableView.reloadData()
+                }
             }
         }
     }
 
     func getQuestionsForNextPage() {
-        NetworkService.shared.getRecentQuestions(page: pagesLoaded + 1, date: date) { (list) in
+        NetworkService.shared.getRecentQuestions(page: pagesLoaded + 1, date: date) { (list, error) in
             self.pagesLoaded += 1
-            guard let questionList = list else {
-                return
-            }
-            DispatchQueue.main.async {
 
-            let previousQuestionCount = self.questions.count
-            self.questions += questionList.questions
-
-            //only reload new questions for smoothness
-            var newIndexPaths: [IndexPath] = []
-            for idx in previousQuestionCount...previousQuestionCount + questionList.questions.count-1 {
-                newIndexPaths.append(IndexPath(row: idx, section: 0))
-            }
-
-            //the load more cell if we are under the max articles
-            if self.questions.count < self.maxQuestionCount {
-                //only add load more cell if its not there before
-                if self.questionsTableView.numberOfRows(inSection: 0) == previousQuestionCount {
-                    newIndexPaths.append(IndexPath(row: self.questions.count, section: 0))
+            if let error = error {
+                print (error)
+            } else {
+                guard let questionList = list else {
+                    return
                 }
-            } else if self.questions.count >= self.maxQuestionCount {
-                newIndexPaths.removeLast() //no more articles, no need to show the load more cell
-            }
+                DispatchQueue.main.async {
 
-                self.questionsTableView.insertRows(at: newIndexPaths, with: .fade)
-                self.questionsTableView.refreshControl?.endRefreshing()
+                    let previousQuestionCount = self.questions.count
+                    self.questions += questionList.questions
+
+                    //only reload new questions for smoothness
+                    var newIndexPaths: [IndexPath] = []
+                    for idx in previousQuestionCount...previousQuestionCount + questionList.questions.count-1 {
+                        newIndexPaths.append(IndexPath(row: idx, section: 0))
+                    }
+
+                    //the load more cell if we are under the max articles
+                    if self.questions.count < self.maxQuestionCount {
+                        //only add load more cell if its not there before
+                        if self.questionsTableView.numberOfRows(inSection: 0) == previousQuestionCount {
+                            newIndexPaths.append(IndexPath(row: self.questions.count, section: 0))
+                        }
+                    } else if self.questions.count >= self.maxQuestionCount {
+                        newIndexPaths.removeLast() //no more articles, no need to show the load more cell
+                    }
+
+                    self.questionsTableView.insertRows(at: newIndexPaths, with: .fade)
+                    self.questionsTableView.refreshControl?.endRefreshing()
+                }
             }
         }
     }
@@ -116,7 +125,7 @@ extension QuestionListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if cell as? QuestionListLoadMoreTableViewCell != nil {
             DispatchQueue.main.asyncAfter(deadline: .now() ) {
-               self.getQuestionsForNextPage()
+                self.getQuestionsForNextPage()
             }
         }
         if let imageContainingCell = cell as? ImageContainingTableViewCell {
@@ -147,7 +156,7 @@ extension QuestionListViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row < questions.count {
-        delegate?.didSelectQuestion(question: questions[indexPath.row])
+            delegate?.didSelectQuestion(question: questions[indexPath.row])
         }
     }
 
@@ -156,14 +165,14 @@ extension QuestionListViewController: UITableViewDataSource {
             guard let loadMoreTableViewCell = tableView.dequeueReusableCell(
                 withIdentifier: QuestionListLoadMoreTableViewCell.identifier,
                 for: indexPath) as? QuestionListLoadMoreTableViewCell else {
-                return UITableViewCell()
+                    return UITableViewCell()
             }
             return loadMoreTableViewCell
         } else {
             guard let questionTableViewCell = tableView.dequeueReusableCell(
                 withIdentifier: QuestionListTableViewCell.identifier,
                 for: indexPath) as? QuestionListTableViewCell else {
-                return UITableViewCell()
+                    return UITableViewCell()
             }
             questionTableViewCell.question = questions[indexPath.row]
             return questionTableViewCell
