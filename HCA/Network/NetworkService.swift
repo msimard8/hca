@@ -10,7 +10,7 @@ import UIKit
 
 class NetworkService: NSObject {
     let baseURL = "https://api.stackexchange.com/2.2"
-    var key: String = "wV5REhLr1WpnH1aejgbZHw(("
+    var key: String = "REPLACE-THIS-WITH-API-KEY"
     let pageSize = 20
 
     let session = URLSession(configuration: .default)
