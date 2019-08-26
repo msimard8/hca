@@ -12,9 +12,13 @@ This app supports both iPad and iPhone in all orientations running iOS 12+.  The
 * The answers and questions use Attirbuted Label’s generated from HTML so code blocks stand out.  
 ## Installation
 1. Pull the code from GitHub
-2. If you want to build to a device, pick a valid signing profile.  Select the project file, then select HCA under Targets.  You can change the signing profile under the General tab in the signing section.
+2. Open the file HCA.xcodeproj. 
+3. I sent you an API key for StackOverflow.  It is not good practice to commit API keys so you will need to add it yourself.   Open the file NetworkService.swift and set the key property (line 13) to be the API key I sent you. 
+![](img/photo-3.jpg)
+4. If you want to build to a device, pick a valid signing profile.  Select the project file, then select HCA under Targets.  You can change the signing profile under the General tab in the signing section.
 ![](img/photo-2.png)![](img/photo.png)
-3. Select your device (simulator or real device) and hit the play button to run 
+5. Select your device (simulator or real device) and hit the play button to run 
 ![](img/photo-3.png)
 
 Let me know if you have any questions
+
