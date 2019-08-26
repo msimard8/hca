@@ -14,7 +14,7 @@ This app supports both iPad and iPhone in all orientations running iOS 12+.  The
 1. Pull the code from GitHub
 2. Open the file HCA.xcodeproj. 
 3. I sent you an API key for StackOverflow.  It is not good practice to commit API keys so you will need to add it yourself.   Open the file NetworkService.swift and set the key property (line 13) to be the API key I sent you. 
-![](img/photo-3.jpg)
+![](img/photo-4.jpeg)
 4. If you want to build to a device, pick a valid signing profile.  Select the project file, then select HCA under Targets.  You can change the signing profile under the General tab in the signing section.
 ![](img/photo-2.png)![](img/photo.png)
 5. Select your device (simulator or real device) and hit the play button to run 
