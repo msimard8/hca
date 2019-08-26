@@ -22,6 +22,7 @@ class QuestionListViewController: UIViewController {
     var date = Date()
     var pagesLoaded = 0
     var maxQuestionCount = 300 //putting a max so api doesnt get abused
+    var hasAPIAlertBeenDisplayed = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -132,7 +133,8 @@ class QuestionListViewController: UIViewController {
     }
     
     func verifyAPIKey(){
-        if !NetworkService.shared.hasAPIKeyBeenReplaced() {
+        if !NetworkService.shared.hasAPIKeyBeenReplaced() && hasAPIAlertBeenDisplayed{
+        hasAPIAlertBeenDisplayed = true
         let message = "Please go to NetworkService.swift and edit line 13 to have the API key I gave you. The app will still work but the API request quota may be reached."
         let alert = UIAlertController(title: "Please set API key", message: message, preferredStyle:.alert)
         alert.view.backgroundColor = UIColor.black
