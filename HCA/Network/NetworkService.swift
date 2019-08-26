@@ -10,7 +10,7 @@ import UIKit
 
 class NetworkService: NSObject {
     let baseURL = "https://api.stackexchange.com/2.2"
-    var key: String = "REPLACE-THIS-WITH-API-KEY"
+    var key: String = "wV5REhLr1WpnH1aejgbZHw(("
     let pageSize = 20
 
     let session = URLSession(configuration: .default)
@@ -61,7 +61,7 @@ class NetworkService: NSObject {
                 + "&filter=!)Q2AgQTb-X*Za_BUKPaSUeie"
                 + "&key=\(key)"
 
-            performDataTask(urlComponents: urlComponents) { (data, error) in
+            performDataTask(urlComponents: urlComponents) { [weak self] (data, error) in
                 guard let data = data else {
                     completion(nil, error)
                     return
@@ -70,7 +70,7 @@ class NetworkService: NSObject {
                     completion(nil, error)
                 } else {
                     do {
-                        let answers = try self.decoder.decode(StackOverflowAnswerList.self, from: data)
+                        let answers = try self?.decoder.decode(StackOverflowAnswerList.self, from: data)
                         completion(answers, nil)
                     } catch let jsonDecodeError {
                         completion(nil, jsonDecodeError)
@@ -96,7 +96,7 @@ class NetworkService: NSObject {
                 + "&filter=!.FjtmoGIogKGfL93TUUw1f7UHRoCT"
                 + "&key=\(key)"
 
-            performDataTask(urlComponents: urlComponents) { (data, error) in
+            performDataTask(urlComponents: urlComponents) {[weak self] (data, error) in
                 guard let data = data else {
                     completion(nil, error)
                     return
@@ -105,7 +105,7 @@ class NetworkService: NSObject {
                     completion(nil, error)
                 } else {
                     do {
-                        let questions = try self.decoder.decode(StackOverflowQuestionList.self, from: data)
+                        let questions = try self?.decoder.decode(StackOverflowQuestionList.self, from: data)
                         completion(questions, nil)
                     } catch let jsonDecodeError {
                         completion(nil, jsonDecodeError)
