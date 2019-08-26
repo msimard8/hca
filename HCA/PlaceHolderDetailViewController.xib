@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PlaceHolderDetailViewController" customModule="HCA" customModuleProvider="target">
             <connections>
+                <outlet property="logoView" destination="16k-DM-10J" id="qmM-f6-sen"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -20,23 +21,21 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-blue" translatesAutoresizingMaskIntoConstraints="NO" id="WQg-NT-fQB">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="16k-DM-10J" customClass="LogoView" customModule="HCA" customModuleProvider="target">
                     <rect key="frame" x="103.5" y="349.5" width="207" height="207"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="width" secondItem="WQg-NT-fQB" secondAttribute="height" multiplier="1:1" id="Kp9-Oe-vlr"/>
+                        <constraint firstAttribute="width" secondItem="16k-DM-10J" secondAttribute="height" multiplier="1:1" id="FeV-Em-Lai"/>
                     </constraints>
-                </imageView>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="WQg-NT-fQB" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="AQd-4n-Lnr"/>
-                <constraint firstItem="WQg-NT-fQB" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="rhm-ZU-QaE"/>
-                <constraint firstItem="WQg-NT-fQB" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.5" id="tdk-gJ-bf6"/>
+                <constraint firstItem="16k-DM-10J" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="GwF-37-La0"/>
+                <constraint firstItem="16k-DM-10J" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.5" id="tA6-5j-KdV"/>
+                <constraint firstItem="16k-DM-10J" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="zZM-is-2uJ"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
         </view>
     </objects>
-    <resources>
-        <image name="logo-blue" width="795" height="804"/>
-    </resources>
 </document>
