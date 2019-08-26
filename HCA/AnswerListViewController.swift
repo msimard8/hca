@@ -20,8 +20,10 @@ class AnswerListViewController: UIViewController {
                 self.answersTableView?.isHidden = true
                 self.answersTableView?.setContentOffset(.zero, animated: false)
                 self.loadingActivityIndicator.isHidden = false
+
                 NetworkService.shared.getAnswers(questionId: self.question?.questionId ?? 0) { (answerList, error) in
                     if let error = error {
+                        Utils.showErrorMessage(controller: self, message: "Something went wrong. Try again", seconds: 2)
                         print (error)
                     } else {
                         self.answers = answerList?.answerListWithBestFirst() ?? []

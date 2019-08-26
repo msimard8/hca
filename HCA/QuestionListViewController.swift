@@ -47,6 +47,7 @@ class QuestionListViewController: UIViewController {
         self.loadingActivityIndicator.isHidden = false
         NetworkService.shared.getRecentQuestions(page: 1, date: Date()) { (list, error) in
             if let error = error {
+                Utils.showErrorMessage(controller: self, message: "Something went wrong. Try again", seconds: 2)
                 print (error)
             } else {
                 guard let questionList = list else {
@@ -68,6 +69,7 @@ class QuestionListViewController: UIViewController {
             self.pagesLoaded += 1
 
             if let error = error {
+                Utils.showErrorMessage(controller: self, message: "Something went wrong. Try again", seconds: 2)
                 print (error)
             } else {
                 guard let questionList = list else {
