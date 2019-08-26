@@ -46,7 +46,10 @@ class QuestionListViewController: UIViewController {
     @objc func refreshData() {
         date = Date()
         self.loadingActivityIndicator.isHidden = false
-        NetworkService.shared.getRecentQuestions(page: 1, date: Date()) { (list, error) in
+        NetworkService.shared.getRecentQuestions(page: 1, date: Date()) { [weak self] (list, error) in
+            guard let self = self else {
+                return
+            }
             if let error = error {
                 Utils.showErrorMessage(controller: self, message: "Something went wrong. Try again", seconds: 2)
                 print (error)
@@ -66,7 +69,12 @@ class QuestionListViewController: UIViewController {
     }
 
     func getQuestionsForNextPage() {
-        NetworkService.shared.getRecentQuestions(page: pagesLoaded + 1, date: date) { (list, error) in
+        NetworkService.shared.getRecentQuestions(page: pagesLoaded + 1, date: date) { [weak self] (list, error) in
+            
+            guard let self = self else {
+                return
+            }
+            
             self.pagesLoaded += 1
 
             if let error = error {
