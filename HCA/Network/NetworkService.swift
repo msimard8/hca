@@ -10,7 +10,7 @@ import UIKit
 
 class NetworkService: NSObject {
     let baseURL = "https://api.stackexchange.com/2.2"
-    let key: String = "REPLACE-THIS-WITH-API-KEY"
+    var key: String = "REPLACE-THIS-WITH-API-KEY"
     let pageSize = 20
 
     let session = URLSession(configuration: .default)
@@ -139,6 +139,16 @@ class NetworkService: NSObject {
             completion(image, nil)
         }
         task.resume()
+    }
+    
+    func hasAPIKeyBeenReplaced() -> Bool {
+        if key != "REPLACE-THIS-WITH-API-KEY"{
+            return true
+        }
+        else {
+            key = ""
+            return false
+        }
     }
 }
 
