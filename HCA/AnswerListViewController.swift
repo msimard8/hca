@@ -21,7 +21,10 @@ class AnswerListViewController: UIViewController {
                 self.answersTableView?.setContentOffset(.zero, animated: false)
                 self.loadingActivityIndicator.isHidden = false
 
-                NetworkService.shared.getAnswers(questionId: self.question?.questionId ?? 0) { (answerList, error) in
+                NetworkService.shared.getAnswers(questionId: self.question?.questionId ?? 0) { [weak self] (answerList, error) in
+                    guard let self = self else {
+                        return
+                    }
                     if let error = error {
                         Utils.showErrorMessage(controller: self, message: "Something went wrong. Try again", seconds: 2)
                         print (error)
