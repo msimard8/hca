@@ -39,6 +39,7 @@ class QuestionListViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        verifyAPIKey()
         refreshData()
     }
 
@@ -119,6 +120,20 @@ class QuestionListViewController: UIViewController {
                 }
             }
 
+        }
+    }
+    
+    func verifyAPIKey(){
+        if !NetworkService.shared.hasAPIKeyBeenReplaced() {
+        let message = "Please go to NetworkService.swift and edit line 13 to have the API key I gave you. The app will still work but the API request quota may be reached."
+        let alert = UIAlertController(title: "Please set API key", message: message, preferredStyle:.alert)
+        alert.view.backgroundColor = UIColor.black
+        alert.view.layer.cornerRadius = 15
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+            alert.dismiss(animated: true, completion: {
+            })
+        }))
+        self.present(alert, animated: true)
         }
     }
 }
