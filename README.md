@@ -13,8 +13,8 @@ This app supports both iPad and iPhone in all orientations running iOS 12+.  The
 ## Installation
 1. Pull the code from GitHub
 2. If you want to build to a device, pick a valid signing profile.  Select the project file, then select HCA under Targets.  You can change the signing profile under the General tab in the signing section.
-![](img/photo-2.PNG)![](img/photo.PNG)
+![](img/photo-2.png)![](img/photo.png)
 3. Select your device (simulator or real device) and hit the play button to run 
-![](img/photo-3.PNG)
+![](img/photo-3.png)
 
 Let me know if you have any questions
