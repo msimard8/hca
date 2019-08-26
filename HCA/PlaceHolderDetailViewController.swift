@@ -22,6 +22,17 @@ class PlaceHolderDetailViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+    }
+    
+    override func viewWillLayoutSubviews() {
+    }
+    override func viewDidLayoutSubviews() {
         logoView.animate()
+    }
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        coordinator.animate(alongsideTransition: { (_) in
+        }) { [weak self] (_) in
+            self?.logoView.animate()
+        }
     }
 }
